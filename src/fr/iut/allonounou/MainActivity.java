@@ -1,11 +1,16 @@
 package fr.iut.allonounou;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 
 public class MainActivity extends Activity {
+	public final static String EXTRA_LOCATION = "fr.iut.allonounou.LOCATION";
+	public final static String EXTRA_NANNY_NAME = "fr.iut.allonounou.NANNY_NAME";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,5 +35,21 @@ public class MainActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	public void searchNanny(View view) {
+		Intent intent = new Intent(this, SearchNannyActivity.class);
+		
+		// MOVE Location TO new activity
+	    EditText editText = (EditText) findViewById(R.id.et_location);
+	    String message = editText.getText().toString();
+	    intent.putExtra(EXTRA_LOCATION, message);
+	    // MOVE Nanny name TO new activity
+	    EditText editText2 = (EditText) findViewById(R.id.et_assistName);
+	    String message2 = editText2.getText().toString();
+	    intent.putExtra(EXTRA_NANNY_NAME, message2);
+	    
+	    // LAUNCH
+	    startActivity(intent);
 	}
 }

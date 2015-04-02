@@ -1,4 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- COLOR -->
+    <item name="pink50" type="color">#FFFCE4EC</item>
+    <item name="pink100" type="color">#FFF8BBD0</item>
+    <item name="pink200" type="color">#FFF48FB1</item>
+    <item name="pink300" type="color">#FFF06292</item>
+    <item name="pink400" type="color">#FFEC407A</item>
+    <item name="pink500" type="color">#FFE91E63</item>
+    <item name="pink600" type="color">#FFD81B60</item>
+    <item name="pink700" type="color">#FFC2185B</item>
+    <item name="pink800" type="color">#FFAD1457</item>
+    <item name="pink900" type="color">#FF880E4F</item>
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
@@ -11,10 +23,17 @@
             backward-compatibility can go here.
         -->
     </style>
+    
+    <!-- ActionBar styles -->
+    <style name="ABStyle"
+           parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">@color/pink300</item>
+    </style>
 
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        <item name="android:actionBarStyle">@style/ABStyle</item>
     </style>
 
 </resources>

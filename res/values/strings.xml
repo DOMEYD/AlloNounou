@@ -5,8 +5,9 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="maternalAssitant">Assistante maternelle</string>
-    <string name="assistName">Nom de l\'assistante :</string>
+    <string name="assistName">Nom de l\'assistante maternelle :</string>
     <string name="closeTo">A proximité de :</string>
     <string name="myLocation">Ma position</string>
+    <string name="searchBtn">Rechercher</string>
 
 </resources>
