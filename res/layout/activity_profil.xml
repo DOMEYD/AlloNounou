@@ -1,0 +1,147 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/list_selector"
+    android:orientation="vertical"
+    android:padding="5dip"
+    tools:context="fr.iut.allonounou.SearchNannyActivity"
+    tools:ignore="ScrollViewCount" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         >
+        
+         <ImageView 
+            android:id="@+id/list_image"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:src="@drawable/ic_launcher"/>
+
+         <TextView
+             android:id="@+id/textView1"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentTop="true"
+             android:layout_toRightOf="@+id/list_image"
+             android:text="NOM" />
+
+         <TextView
+             android:id="@+id/textView2"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentTop="true"
+             android:layout_marginLeft="5dp"
+             android:layout_toRightOf="@+id/textView1"
+             android:text="Prénom" />
+
+         <TextView
+             android:id="@+id/textView3"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignLeft="@+id/textView1"
+             android:layout_below="@+id/textView1"
+             android:layout_marginLeft="20dp"
+             android:text="Indication adresse" />
+
+         <ImageButton
+             android:id="@+id/imageButton1"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentRight="true"
+             android:layout_alignParentTop="true"
+             android:src="@drawable/ic_location" />
+
+         <LinearLayout
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content" 
+             android:layout_marginTop="60dp"
+             >
+
+             <TextView
+                 android:id="@+id/textView4"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_alignParentTop="true"
+                 android:layout_marginTop="4dp"
+                 android:layout_marginRight="4dp"
+                 android:text="Capacité : " />
+
+             <ImageView 
+	            android:id="@+id/list_image1"
+	            android:layout_width="25dip"
+	            android:layout_height="25dip"
+	            android:src="@drawable/ic_launcher"/>
+             <ImageView 
+	            android:id="@+id/list_image2"
+	            android:layout_width="25dip"
+	            android:layout_height="25dip"
+	            android:src="@drawable/ic_launcher"/>
+             <ImageView 
+	            android:id="@+id/list_image3"
+	            android:layout_width="25dip"
+	            android:layout_height="25dip"
+	            android:src="@drawable/ic_launcher"/>
+             <ImageView 
+	            android:id="@+id/list_image4"
+	            android:layout_width="25dip"
+	            android:layout_height="25dip"
+	            android:src="@drawable/ic_launcher"/>
+             <ImageView 
+	            android:id="@+id/list_image5"
+	            android:layout_width="25dip"
+	            android:layout_height="25dip"
+	            android:src="@drawable/ic_launcher"/>
+         </LinearLayout>
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+             
+            <TextView
+                 android:id="@+id/textView5"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+ 				 android:layout_alignParentTop="true"
+                 android:text="Tarif " />
+              <TextView
+                 android:id="@+id/textView6"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+ 				 android:layout_alignParentTop="true"
+                 android:text="Lieu de Travail" />
+                <TextView
+                 android:id="@+id/textView7"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+ 				 android:layout_alignParentTop="true"
+                 android:text="Information complémentaires" />
+            
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            
+            android:text="Demande de contact" 
+            />
+
+    </LinearLayout>
+	
+</LinearLayout>

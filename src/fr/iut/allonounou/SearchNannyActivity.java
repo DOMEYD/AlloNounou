@@ -9,7 +9,7 @@ public class SearchNannyActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_searchnanny);
+		setContentView(R.layout.activity_search);
 		
 		Intent intent = getIntent();
 		String location = intent.getStringExtra(MainActivity.EXTRA_LOCATION);
