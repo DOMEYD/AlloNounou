@@ -9,5 +9,6 @@
     <string name="closeTo">A proximité de :</string>
     <string name="myLocation">Ma position</string>
     <string name="searchBtn">Rechercher</string>
+    <string name="loading">Recherche d\'une addresse proche de vous</string>
 
 </resources>
