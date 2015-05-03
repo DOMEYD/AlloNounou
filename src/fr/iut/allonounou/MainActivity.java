@@ -1,7 +1,11 @@
 package fr.iut.allonounou;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -51,5 +55,34 @@ public class MainActivity extends Activity {
 	    
 	    // LAUNCH
 	    startActivity(intent);
+	}
+	
+	public void getLocation(View view) {
+		// Acquire a reference to the system Location Manager
+		LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+
+//		// Define a listener that responds to location updates
+//		LocationListener locationListener = new LocationListener() {
+//		    public void onLocationChanged(Location location) {
+//		      // Called when a new location is found by the network location provider.
+//		      makeUseOfNewLocation(location);
+//		    }
+//
+//		    public void onStatusChanged(String provider, int status, Bundle extras) {}
+//
+//		    public void onProviderEnabled(String provider) {}
+//
+//		    public void onProviderDisabled(String provider) {}
+//		};
+//
+//		// Register the listener with the Location Manager to receive location updates
+//		locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
+		
+		Location lastKnownLocation = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+		
+	    EditText editText = (EditText) findViewById(R.id.et_location);
+		EditText editText2 = (EditText) findViewById(R.id.et_assistName);
+		editText.setText("" + lastKnownLocation.getLatitude());
+		editText2.setText("" + lastKnownLocation.getLongitude());
 	}
 }
