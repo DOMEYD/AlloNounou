@@ -15,23 +15,51 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnFocusChangeListener;
+import android.view.Window;
 import android.widget.EditText;
 
+/*
+ * ACTIVITY which manage search form
+ */
 public class MainActivity extends Activity {
 	public final static String EXTRA_LOCATION = "fr.iut.allonounou.LOCATION";
 	public final static String EXTRA_NANNY_NAME = "fr.iut.allonounou.NANNY_NAME";
 	
 	private double lat = 0;
 	private double lon = 0;
+	private EditText editTextLocation;
 	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		//Remove title bar
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		
+		// DISPLAY layout after to prevent crash
 		setContentView(R.layout.activity_main);
+		
+		editTextLocation = (EditText) findViewById(R.id.et_location);
+		editTextLocation.setOnFocusChangeListener(new OnFocusChangeListener() {          
+			public void onFocusChange(View v, boolean hasFocus) {
+				if (!hasFocus) {
+					// code to execute when EditText loses focus
+					Geocoder geocoder = new Geocoder(MainActivity.this);
+					List<Address> addresses;
+					
+					try {
+						addresses = geocoder.getFromLocationName(editTextLocation.getText().toString(), 1);
+						lat = addresses.get(0).getLatitude();
+						lon = addresses.get(0).getLongitude();
+					} catch(IOException e) {}
+				}
+			}
+		});
 	}
 
 	@Override
@@ -63,19 +91,11 @@ public class MainActivity extends Activity {
 			intent.putExtra(EXTRA_NANNY_NAME, nannyName);
 		} else if(this.lat != 0 && this.lon != 0) {
 			Double [] pos = {lat, lon};
+			Log.d("DEBUG_LATLON", lat + " " + lon);
 			intent.putExtra(EXTRA_LOCATION, pos);
 		} else {
 			return;
 		}
-		
-//		// MOVE Location TO new activity
-//	    EditText editText = (EditText) findViewById(R.id.et_location);
-//	    String message = editText.getText().toString();
-//	    intent.putExtra(EXTRA_LOCATION, message);
-//	    // MOVE Nanny name TO new activity
-//	    EditText editText2 = (EditText) findViewById(R.id.et_assistName);
-//	    String message2 = editText2.getText().toString();
-//	    intent.putExtra(EXTRA_NANNY_NAME, message2);
 	    
 	    // LAUNCH
 	    startActivity(intent);
