@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Locale;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.location.Address;
@@ -90,6 +92,12 @@ public class MainActivity extends Activity {
 		lat = lastKnownLocation.getLatitude();
 		lon = lastKnownLocation.getLongitude();
 		
+		// CREATE waiting dialog box
+		final Dialog d = new Dialog(MainActivity.this);
+//		d.setTitle(getString(R.string));
+		d.setContentView(R.layout.dialog_loadaddresses);
+		d.show();
+		
 		// GET geocoder service
 		Geocoder geocoder;
 		List<Address> addresses;
@@ -99,6 +107,8 @@ public class MainActivity extends Activity {
 		addresses = geocoder.getFromLocation(lat, lon, 1);
 		
 		EditText editTextLocation = (EditText) findViewById(R.id.et_location);
-		editTextLocation.setText(addresses.get(0).getAddressLine(0) + " " + addresses.get(0).getAdminArea() + " " + addresses.get(0).getLocality());
+		editTextLocation.setText(addresses.get(0).getAddressLine(0) + " " + addresses.get(0).getPostalCode() + " " + addresses.get(0).getLocality());
+		
+		d.dismiss();
 	}
 }
