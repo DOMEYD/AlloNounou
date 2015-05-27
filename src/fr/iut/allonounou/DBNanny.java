@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-public class DBNanny<DBAdapter> {
+public class DBNanny {
 	public static final String KEY_NANNY_ID = "id";
 	public static final String KEY_NANNY_FIRSTNAME = "first_name";
 	public static final String KEY_NANNY_LASTNAME ="last_name";
@@ -30,9 +30,9 @@ public class DBNanny<DBAdapter> {
 	private static final String DATABASE_CREATE = 
 			"create table if not exists assignments (id integer primary key autoincrement, "
 			+ "first_name VARCHAR not null, last_name VARCHAR not null, "
-			+ "street VARCHAR, city VARCHAR, postal_code int, "
-			+ "type1 int not null, type2 int not null, type3 int not null "
-			+ "price int, workplace VARCHAR, other VARCHAR);";
+			+ "street VARCHAR, city VARCHAR, postal_code INT, "
+			+ "type1 INT not null, type2 INT not null, type3 INT not null "
+			+ "price INT, workplace VARCHAR, other VARCHAR);";
 	
     private DatabaseHelper DBHelper;
     private SQLiteDatabase db;
@@ -87,9 +87,9 @@ public class DBNanny<DBAdapter> {
     
     //---insert a record into the database---
     public long insertRecord(String first_name, String last_name,
-    		String street, String city, int postal_code,
-    		int type1, int type2, int type3,
-    		int price, String workplace, String other) 
+    		String street, String city, String postal_code,
+    		String type1, String type2, String type3,
+    		String price, String workplace, String other) 
     {
     	ContentValues initialValues = new ContentValues();
     	initialValues.put(KEY_NANNY_FIRSTNAME, first_name);
