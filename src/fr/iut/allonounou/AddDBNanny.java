@@ -21,6 +21,7 @@ public class AddDBNanny extends Activity{
 	
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_search);
        
         try {        	
         	String destPath = "/data/data/" + getPackageName() + "/databases/AssignmentDB";

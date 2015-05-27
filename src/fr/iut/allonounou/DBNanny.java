@@ -105,7 +105,6 @@ public class DBNanny {
     	initialValues.put(KEY_NANNY_OTHER, other);
     	return db.insert(DATABASE_TABLE, null, initialValues);
     }
-    
     		
    //---deletes a particular record---
     public boolean deleteContact(long nannyId) 
@@ -135,6 +134,20 @@ public class DBNanny {
                 		KEY_NANNY_STREET, KEY_NANNY_CITY, KEY_NANNY_CITYPC,
                 		KEY_NANNY_CAPACITANCE_TYPE1, KEY_NANNY_CAPACITANCE_TYPE2, KEY_NANNY_CAPACITANCE_TYPE3,
                 		KEY_NANNY_PRICE, KEY_NANNY_WORKPLACE, KEY_NANNY_OTHER}, 
+                		KEY_NANNY_ID + "=" + nannyId, null, null, null, null, null);
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        return mCursor;
+    }
+    
+    //test
+    public Cursor getRecord2(long nannyId) throws SQLException 
+    {
+        Cursor mCursor =
+                db.query(true, DATABASE_TABLE, new String[] {
+                		KEY_NANNY_ID, 
+                		KEY_NANNY_FIRSTNAME, KEY_NANNY_CITY}, 
                 		KEY_NANNY_ID + "=" + nannyId, null, null, null, null, null);
         if (mCursor != null) {
             mCursor.moveToFirst();
