@@ -37,20 +37,20 @@ public class AddDBNanny extends Activity{
 		}
         
         //---add an assignment---
-        db.open();        
+       // db.open();        
         long id = db.insertRecord("Paula","HENRIQUEZ","avenue des sports","WERVICK","59117","0","2","1","7","Maison","Jardin avec jeux en extérieur");        
         id = db.insertRecord("Marie","ANTOINETTE","rue des Poilus","OLIVET","45160","3","1","0","9"," "," ");
         db.close();
         
         //---get all Records---
-        db.open();
-        Cursor c = db.getAllRecords();
+       // db.open();
+       /*Cursor c = db.getAllRecords();
         if (c.moveToFirst())
         {
             do {          
                 DisplayRecord(c);
             } while (c.moveToNext());
-        }
+        }*/
         db.close();
         
         //---get a Record---

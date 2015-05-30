@@ -1,5 +1,8 @@
 package fr.iut.allonounou;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -8,7 +11,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-public class DBNanny {
+public class DBNanny extends SQLiteOpenHelper {
 	public static final String KEY_NANNY_ID = "id";
 	public static final String KEY_NANNY_FIRSTNAME = "first_name";
 	public static final String KEY_NANNY_LASTNAME ="last_name";
@@ -27,24 +30,83 @@ public class DBNanny {
 	private static final String DATABASE_TABLE = "assignments";
 	private static final int DATABASE_VERSION = 1;
 	
-	private static final String DATABASE_CREATE = 
-			"create table if not exists assignments (id integer primary key autoincrement, "
+	private static String DATABASE_CREATE=null;
+	
+   // private DatabaseHelper DBHelper;
+    private SQLiteDatabase db;
+	private Context context;
+
+	DBNanny(Context context) {
+		// Appel au constructeur qui s'occupe de créer ou ouvrir la base.
+		super(context, DATABASE_TABLE, null, 2);
+		// Récupération de la base de données.
+		db = getWritableDatabase();
+    }
+	@Override
+	public void onCreate(SQLiteDatabase db) {
+		DATABASE_CREATE = "create table if not exists assignments (id integer primary key autoincrement, "
 			+ "first_name VARCHAR not null, last_name VARCHAR not null, "
 			+ "street VARCHAR, city VARCHAR, postal_code INT, "
 			+ "type1 INT not null, type2 INT not null, type3 INT not null "
 			+ "price INT, workplace VARCHAR, other VARCHAR);";
-	
-    private DatabaseHelper DBHelper;
-    private SQLiteDatabase db;
-	private Context context;
+		// TODO Auto-generated method stub
+		long id = insertRecord("Paula","HENRIQUEZ","avenue des sports","WERVICK","59117","0","2","1","7","Maison","Jardin avec jeux en extérieur");        
+        id = insertRecord("Marie","ANTOINETTE","rue des Poilus","OLIVET","45160","3","1","0","9"," "," ");
+	}
 
-    public DBNanny(Context ctx) 
+	@Override
+	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	 //---insert a record into the database---
+    public long insertRecord(String first_name, String last_name,
+    		String street, String city, String postal_code,
+    		String type1, String type2, String type3,
+    		String price, String workplace, String other) 
     {
-        this.context = ctx;
-        DBHelper = new DatabaseHelper(context);
+    	ContentValues initialValues = new ContentValues();
+    	initialValues.put(KEY_NANNY_FIRSTNAME, first_name);
+    	initialValues.put(KEY_NANNY_LASTNAME, last_name);
+    	initialValues.put(KEY_NANNY_STREET, street);
+    	initialValues.put(KEY_NANNY_CITY, city);
+    	initialValues.put(KEY_NANNY_CITYPC, postal_code);
+    	initialValues.put(KEY_NANNY_CAPACITANCE_TYPE1, type1);
+    	initialValues.put(KEY_NANNY_CAPACITANCE_TYPE2, type2);
+    	initialValues.put(KEY_NANNY_CAPACITANCE_TYPE3, type3);
+    	initialValues.put(KEY_NANNY_PRICE, price);
+    	initialValues.put(KEY_NANNY_WORKPLACE, workplace);
+    	initialValues.put(KEY_NANNY_OTHER, other);
+    	return db.insert(DATABASE_TABLE, null, initialValues);
+    }
+    
+    public List<String> getAllRecords() 
+    {
+    	List<String> list = new ArrayList<String>();
+    	String[] columns = {"nom","ville"};
+		Cursor cursor = db.query(DATABASE_TABLE, columns, null, null, null, null, null);
+       /* Cursor cursor = db.query(DATABASE_TABLE, new String[] {
+        		KEY_NANNY_ID, 
+        		KEY_NANNY_FIRSTNAME, KEY_NANNY_LASTNAME,
+        		KEY_NANNY_STREET, KEY_NANNY_CITY, KEY_NANNY_CITYPC,
+        		KEY_NANNY_CAPACITANCE_TYPE1, KEY_NANNY_CAPACITANCE_TYPE2, KEY_NANNY_CAPACITANCE_TYPE3,
+        		KEY_NANNY_PRICE, KEY_NANNY_WORKPLACE, KEY_NANNY_OTHER}, 
+        		null, null, null, null, null);*/
+        cursor.moveToFirst();
+		while (!cursor.isAfterLast()) {
+			// Récupération d'une chaîne et insertion dans une liste.
+			list.add(cursor.getString(0));
+			// Passage à l'entrée suivante.
+			cursor.moveToNext();
+		}
+		// Fermeture du curseur.
+		cursor.close();
+
+		return list;
     }
         
-    private static class DatabaseHelper extends SQLiteOpenHelper 
+    /*private static class DatabaseHelper extends SQLiteOpenHelper 
     {
         DatabaseHelper(Context context) 
         {
@@ -113,15 +175,29 @@ public class DBNanny {
     }
 
     //---retrieves all the records---
-    public Cursor getAllRecords() 
+    public List<String> getAllRecords() 
     {
-        return db.query(DATABASE_TABLE, new String[] {
+    	List<String> list = new ArrayList<String>();
+    	String[] columns = {"nom","ville"};
+		Cursor cursor = db.query(DATABASE_TABLE, columns, null, null, null, null, null);
+       /* Cursor cursor = db.query(DATABASE_TABLE, new String[] {
         		KEY_NANNY_ID, 
         		KEY_NANNY_FIRSTNAME, KEY_NANNY_LASTNAME,
         		KEY_NANNY_STREET, KEY_NANNY_CITY, KEY_NANNY_CITYPC,
         		KEY_NANNY_CAPACITANCE_TYPE1, KEY_NANNY_CAPACITANCE_TYPE2, KEY_NANNY_CAPACITANCE_TYPE3,
         		KEY_NANNY_PRICE, KEY_NANNY_WORKPLACE, KEY_NANNY_OTHER}, 
-        		null, null, null, null, null);
+        		null, null, null, null, null);*/
+    /*    cursor.moveToFirst();
+		while (!cursor.isAfterLast()) {
+			// Récupération d'une chaîne et insertion dans une liste.
+			list.add(cursor.getString(0));
+			// Passage à l'entrée suivante.
+			cursor.moveToNext();
+		}
+		// Fermeture du curseur.
+		cursor.close();
+
+		return list;
     }
 
     //---retrieves a particular record---
@@ -175,5 +251,5 @@ public class DBNanny {
         args.put(KEY_NANNY_WORKPLACE, workplace);
         args.put(KEY_NANNY_OTHER, other);
         return db.update(DATABASE_TABLE, args, KEY_NANNY_ID + "=" + nannyId, null) > 0;
-    }
+    }*/
 }
