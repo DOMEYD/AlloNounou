@@ -69,7 +69,7 @@
 			android:onClick="searchNanny" />
 
         <ListView
-            android:id="@+id/listView1"
+            android:id="@+id/listView"
             android:layout_width="fill_parent"
             android:layout_height="match_parent">
         </ListView>

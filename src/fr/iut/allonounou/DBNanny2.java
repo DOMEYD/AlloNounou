@@ -3,10 +3,8 @@ package fr.iut.allonounou;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.Cursor;
-
 import android.content.Context;
 import android.content.ContentValues;
-
 import android.util.Log;
 
 import java.util.List;
@@ -16,9 +14,13 @@ import java.util.ArrayList;
 public class DBNanny2 extends SQLiteOpenHelper {
 
     private static final String DB_NAME = "DB";             // Nom de la base.
-    private static final String DB_TABLE_NAME = "valeurs";  // Nom de la table.
-	 private static final String DB_TABLE_PERSONNE = "personne";  // Nom de la table.
+    public static final String DB_TABLE_NAME = "valeurs";  // Nom de la table.
+	public static final String DB_TABLE_PERSONNE = "personne";  // Nom de la table.
 	  
+	public static final String KEY_FIRSTNAME = "nom";
+	public static final String KEY_LASTNAME = "prenom";
+	
+	
     private SQLiteDatabase db;                              // Base de données
 
     DBNanny2(Context context) {
@@ -34,7 +36,7 @@ public class DBNanny2 extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 		db.execSQL("create table " + DB_TABLE_NAME+ " (_id integer primary key autoincrement, value text not null);");
-		db.execSQL("create table " + DB_TABLE_PERSONNE+ " (_id integer primary key autoincrement, prenom text not null, nom text not null);");
+		db.execSQL("create table " + DB_TABLE_PERSONNE+ " (_id integer primary key autoincrement,"+ KEY_LASTNAME +" text not null,"+ KEY_FIRSTNAME +" text not null);");
     }
 
     /**
@@ -82,13 +84,15 @@ public class DBNanny2 extends SQLiteOpenHelper {
     }
     
     
-    /*public void insertPersonne(Personne p){
+    public void insertPersonne(){
 		ContentValues content = new ContentValues();
-		content.put("prenom",p.getPrenom());
-		content.put("nom",p.getNom());
-		
+		content.put(KEY_LASTNAME,"Jacqueline");
+		content.put(KEY_FIRSTNAME,"TUILARD");
 		db.insert("personne",null,content);
-	}*/
+		content.put(KEY_LASTNAME,"Jacqueline2");
+		content.put(KEY_FIRSTNAME,"TUILARD2");
+		db.insert("personne",null,content);
+	}
     
     
     public List<String> getPersonne() {
@@ -101,6 +105,7 @@ public class DBNanny2 extends SQLiteOpenHelper {
 		while (!cursor.isAfterLast()) {
 			// Récupération d'une chaîne et insertion dans une liste.
 			list.add(cursor.getString(0));
+			list.add(cursor.getString(1));
 			// Passage à l'entrée suivante.
 			cursor.moveToNext();
 		}
@@ -110,6 +115,16 @@ public class DBNanny2 extends SQLiteOpenHelper {
 		return list;
     }
     
-    
+ // Return all data in the database.
+ 	public Cursor getAllRows() {
+ 		String where = null;
+ 		List<String> list = new ArrayList<String>();
+		String[] columns = {KEY_LASTNAME,KEY_FIRSTNAME};
+ 		Cursor c = 	db.query(true,DB_TABLE_PERSONNE, columns, null, null, null, null, null,null);
+ 		if (c != null) {
+ 			c.moveToFirst();
+ 		}
+ 		return c;
+ 	}
 
 }

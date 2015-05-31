@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/thumbnail"
         android:layout_toRightOf="@+id/thumbnail"
-        android:text="Title of song"
+        android:text="FirstName LastName"
         android:textColor="#040404"
         android:typeface="sans"
         android:textSize="15dip"
@@ -44,16 +44,16 @@
        	android:textSize="10dip"
        	android:layout_marginTop="1dip"
        	android:layout_toRightOf="@+id/thumbnail"
-        android:text="Artist's Name"/>
+        android:text="Indication Adress"/>
     
     <TextView 
-        android:id="@+id/duration"
+        android:id="@+id/duree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@id/title"
         android:gravity="right"
-        android:text="Duree"
+        android:text="duree"
         android:layout_marginRight="5dip"
         android:textSize="10dip"
        	android:textColor="#10bcc9"
