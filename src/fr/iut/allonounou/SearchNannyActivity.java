@@ -1,6 +1,7 @@
 package fr.iut.allonounou;
 
 import java.util.List;
+
 import android.widget.AdapterView;
 import android.app.Activity;
 import android.content.Intent;
@@ -8,6 +9,8 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
@@ -30,6 +33,19 @@ public class SearchNannyActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_search2);
 		
+		/* Jean-Yves (Je veux pouvoir acceder à nannyPtofil mais comment ?)
+		
+		Button button = (Button) findViewById (R.id.button1);
+		// si clique ouvre NannyProfil
+		button.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View v){
+				Intent openNannyProfil = new Intent(SearchNannyActivity.this, NannyProfil.class);
+
+				startActivity(openNannyProfil);
+			}
+		});
+		*/
 		openDB();
 	
 		//initiate DATABASE
@@ -38,7 +54,7 @@ public class SearchNannyActivity extends Activity {
 		
 		populateListViewFromDB();
 		
-		
+	
 		//myDB.insertPersonne();
 		//TextView textview = (TextView)findViewById(R.id.title);
 		//TextView textview1 = (TextView)findViewById(R.id.artiste);

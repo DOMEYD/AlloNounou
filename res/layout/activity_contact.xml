@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+	<LinearLayout
+		android:layout_height="match_parent"
+		android:layout_width="match_parent"
+		android:orientation="vertical">
+		
+	    <TextView
+	        android:layout_width="match_parent"
+	        android:layout_height="30dp"
+	        android:background="#74ABAA"
+	        android:gravity="center"
+	        android:text="Vous"
+	        android:textAppearance="?android:attr/textAppearanceLarge"
+	        android:textColor="#FFFFFF" />
+
+		<LinearLayout
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:orientation="vertical"
+			android:padding="10dp"
+			android:background="#B795A5">
+
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				android:orientation="horizontal"
+				android:layout_marginBottom="10dp"
+				android:background="#C4C4C4">
+
+				<ImageView
+					android:layout_height="35dp"
+					android:layout_width="35dp"
+					android:src="@drawable/name"
+					android:layout_gravity="center_vertical"
+					android:layout_marginRight="5dp"
+					android:layout_marginLeft="5dp"/>
+
+				<EditText
+				    android:id="@+id/edit_name"
+				    android:layout_width="match_parent"
+				    android:layout_height="wrap_content"
+				    android:background="#FFFFFF"
+				    android:ems="10"
+				    android:height="40dp"
+				    android:hint="Prénom NOM"
+				    android:inputType="text"
+				    android:padding="10dp" />
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				android:orientation="horizontal"
+				android:layout_marginBottom="10dp"
+				android:background="#C4C4C4">
+
+				<ImageView
+					android:layout_height="35dp"
+					android:layout_width="35dp"
+					android:src="@drawable/email"
+					android:layout_marginRight="5dp"
+					android:layout_marginLeft="5dp"
+					android:layout_gravity="center_vertical"/>
+
+				<EditText
+				    android:id="@+id/edit_email"
+				    android:layout_width="match_parent"
+				    android:layout_height="wrap_content"
+				    android:background="#FFFFFF"
+				    android:ems="10"
+				    android:hint="Adresse E-mail"
+				    android:inputType="text"
+				    android:padding="10dp" />
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				android:orientation="horizontal"
+				android:background="#C4C4C4">
+
+				<ImageView
+					android:layout_height="35dp"
+					android:layout_width="35dp"
+					android:src="@drawable/phone"
+					android:layout_gravity="center_vertical"
+					android:layout_marginRight="5dp"
+					android:layout_marginLeft="5dp"/>
+
+				<EditText
+				    android:id="@+id/edit_phone"
+				    android:layout_width="match_parent"
+				    android:layout_height="wrap_content"
+				    android:background="#FEFEFE"
+				    android:ems="10"
+				    android:hint="Téléphone"
+				    android:inputType="phone"
+				    android:padding="10dp" />
+
+			</LinearLayout>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent"
+			android:orientation="vertical"
+			android:gravity="center"
+			android:padding="10dp"
+			android:background="#E4BBCA">
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceLarge"
+				android:layout_width="match_parent"
+				android:text="Votre message"
+				android:gravity="center"
+				android:background="#ABABAB"
+				android:textColor="#FFFFFF"/>
+
+			<EditText
+			    android:id="@+id/edit_message"
+			    android:layout_width="match_parent"
+			    android:layout_height="100dp"
+			    android:background="#FFFFFF"
+			    android:ems="10"
+			    android:gravity="top"
+			    android:hint="Votre message ..."
+			    android:inputType="textShortMessage"
+			    android:padding="10dp" />
+
+		</LinearLayout>
+
+		<TextView
+			android:layout_height="30dp"
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:layout_width="match_parent"
+			android:text="Enfant"
+			android:gravity="center"
+			android:background="#74ABAA"
+			android:textColor="#FFFFFF"/>
+
+		<LinearLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:background="#EEEEEE"
+		    android:baselineAligned="true"
+		    android:orientation="vertical"
+		    android:padding="10dp" >
+
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				android:orientation="horizontal"
+				android:clipToPadding="true"
+				android:background="#739FC5"
+				android:layout_marginBottom="5dp">
+
+				<ImageView
+					android:layout_height="35dp"
+					android:layout_width="35dp"
+					android:src="@drawable/child"
+					android:layout_gravity="center_vertical"
+					android:layout_marginLeft="5dp"
+					android:layout_marginRight="5dp"/>
+
+				<EditText
+				    android:id="@+id/edit_childname"
+				    android:layout_width="match_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_gravity="center_vertical"
+				    android:background="#FFFFFF"
+				    android:ems="10"
+				    android:hint="Prénom NOM"
+				    android:inputType="text"
+				    android:padding="10dp" />
+
+			</LinearLayout>
+
+			<LinearLayout
+			    android:layout_width="match_parent"
+			    android:layout_height="45dp"
+			    android:orientation="horizontal" >
+
+				<EditText
+				    android:id="@+id/edit_aged"
+				    android:layout_width="60dp"
+				    android:layout_height="match_parent"
+				    android:background="#C4C4C4"
+				    android:ems="2"
+				    android:hint="Âge"
+				    android:inputType="number"
+				    android:maxLength="2"
+				    android:padding="10dp" >
+
+				    <requestFocus />
+				</EditText>
+
+				<LinearLayout
+				    android:layout_width="wrap_content"
+				    android:layout_height="45dp"
+				    android:background="#C4C4C4"
+				    android:orientation="horizontal" >
+
+					<Spinner
+					    android:id="@+id/info_age"
+					    android:layout_width="80dp"
+					    android:layout_height="match_parent"
+					    android:layout_marginRight="20dp" />
+
+				</LinearLayout>
+
+				<LinearLayout
+				    android:layout_width="match_parent"
+				    android:layout_height="45dp"
+				    android:background="#739FC5"
+				    android:gravity="center"
+				    android:orientation="horizontal" >
+
+					<Spinner
+					    android:id="@+id/info_sexe"
+					    android:layout_width="100dp"
+					    android:layout_height="wrap_content" />
+
+				</LinearLayout>
+
+			</LinearLayout>
+
+		</LinearLayout>
+
+		<TextView
+		    android:layout_width="match_parent"
+		    android:layout_height="30dp"
+		    android:background="#74ABAA"
+		    android:gravity="center"
+		    android:text="Horaires"
+		    android:textAppearance="?android:attr/textAppearanceLarge"
+		    android:textColor="#FFFFFF" />
+		
+		<LinearLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_gravity="center"
+		    android:background="#DDDDDD"
+		    android:gravity="center"
+		    android:orientation="vertical"
+		    android:padding="10dp" >
+
+		<TextView
+		    android:layout_width="match_parent"
+		    android:layout_height="fill_parent"
+		    android:layout_marginBottom="10dp"
+		    android:background="#B3B3B3"
+		    android:gravity="center"
+		    android:padding="5dp"
+		    android:text="Heure de dépot de l&apos;enfant"
+		    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+		<LinearLayout
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginBottom="10dp"
+		    android:background="#B3B3B3"
+		    android:orientation="horizontal"
+		    android:padding="10dp" >
+
+		    <EditText
+		        android:id="@+id/houre_arr"
+		        android:layout_width="50dp"
+		        android:layout_height="40dp"
+		        android:layout_weight="1"
+		        android:background="#FFFFFF"
+		        android:gravity="center"
+		        android:hint="HH"
+		        android:inputType="time"
+		        android:maxLength="2" />
+
+		    <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="match_parent"
+		        android:background="#FFFFFF"
+		        android:gravity="center"
+		        android:text=":"
+		        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+		    <EditText
+		        android:id="@+id/minute_arr"
+		        android:layout_width="50dp"
+		        android:layout_height="40dp"
+		        android:layout_weight="1"
+		        android:background="#FFFFFF"
+		        android:gravity="center"
+		        android:hint="MM"
+		        android:inputType="time"
+		        android:maxLength="2" />
+
+		</LinearLayout>
+
+		<TextView
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_gravity="center_horizontal"
+		    android:layout_marginBottom="10dp"
+		    android:background="#B3B3B3"
+		    android:gravity="center"
+		    android:padding="5dp"
+		    android:text="Heure de récupération "
+		    android:textAppearance="?android:attr/textAppearanceMedium" />
+		
+		<LinearLayout
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:background="#B3B3B3"
+		    android:orientation="horizontal"
+		    android:padding="10dp" >
+
+		    <EditText
+		        android:id="@+id/houre_dep"
+		        android:layout_width="50dp"
+		        android:layout_height="40dp"
+		        android:layout_weight="1"
+		        android:background="#FFFFFF"
+		        android:gravity="center"
+		        android:hint="HH"
+		        android:inputType="time"
+		        android:maxLength="2"
+		        android:maxLines="2" />
+
+		    <TextView
+		        android:layout_width="wrap_content"
+		        android:layout_height="match_parent"
+		        android:background="#FFFFFF"
+		        android:gravity="center"
+		        android:text=":"
+		        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+		    <EditText
+		        android:id="@+id/minute_dep"
+		        android:layout_width="50dp"
+		        android:layout_height="40dp"
+		        android:layout_weight="1"
+		        android:background="#FFFFFF"
+		        android:gravity="center"
+		        android:hint="MM"
+		        android:inputType="time"
+		        android:maxLength="2" />
+
+		</LinearLayout>
+
+	</LinearLayout>
+
+		<Button
+		    
+			android:layout_height="match_parent"
+			android:layout_width="match_parent"
+			android:text="Envoyer la demande"
+			android:background="#DE7972"
+			android:id="@+id/btn_send"/>
+
+	</LinearLayout>
+
+</ScrollView>
+
