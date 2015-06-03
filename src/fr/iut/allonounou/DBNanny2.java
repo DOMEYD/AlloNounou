@@ -10,7 +10,6 @@ import android.util.Log;
 import java.util.List;
 import java.util.ArrayList;
 
-
 public class DBNanny2{
 
 	private static final String TAG = "DBNanny2";
@@ -138,6 +137,7 @@ public class DBNanny2{
 		return c;
 	}
 	
+		
 	// Change an existing row to be equal to new data.
 		public boolean updateRow(long rowId, String name, String freeplace, String adresse, int longitude, int latitude, String mail, int prix, String workplace, int favori) {
 			String where = KEY_ROWID + "=" + rowId;

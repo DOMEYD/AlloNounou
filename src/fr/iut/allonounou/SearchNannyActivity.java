@@ -1,6 +1,7 @@
 package fr.iut.allonounou;
 
 import java.util.List;
+
 import android.widget.AdapterView;
 import android.app.Activity;
 import android.content.Intent;
@@ -8,11 +9,15 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
+
 
 public class SearchNannyActivity extends Activity {
+	public final static String EXTRA_ID = "fr.iut.allonounou.ID";
 	
 	private String nannyName;
 	private double[] location;
@@ -37,24 +42,8 @@ public class SearchNannyActivity extends Activity {
 		InitiateBD();
 		
 		populateListViewFromDB();
+		registerListClickCallback();
 		
-		
-		//myDB.insertPersonne();
-		//TextView textview = (TextView)findViewById(R.id.title);
-		//TextView textview1 = (TextView)findViewById(R.id.artiste);
-
-		// Récupération des chaînes dans la base de données.
-		
-		//List<String> list = myDB.getPersonne();
-
-		/*String values = "";
-		for(int i = 0 ; i < list.size() ;  ++i) {
-			values += list.get(i) + " ";
-		}*/
-
-		// Concaténation des chaines pour affichage
-		//textview.setText(list.get(0));
-		//textview1.setText(list.get(1));
 	}
 	
 	@Override
@@ -96,9 +85,7 @@ public class SearchNannyActivity extends Activity {
 
 	
 	private void populateListViewFromDB() {
-
 		Cursor cursor = myDB.getAllRows();
-
 		// Allow activity to manage lifetime of the cursor.
 		// DEPRECATED! Runs on the UI thread, OK for small/short queries.
 		startManagingCursor(cursor);
@@ -127,4 +114,33 @@ public class SearchNannyActivity extends Activity {
 		myList.setAdapter(myCursorAdapter);
 
 	}
+		
+	
+	
+		//détection du clique sur un item
+		private void registerListClickCallback() {
+			ListView myList = (ListView) findViewById(R.id.listViewNanny);
+			myList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+				@Override
+				public void onItemClick(AdapterView<?> parent, View viewClicked, 
+						int position, long idInDB) {
+
+					//Lancement de l'activity profil en passant en paramètre l'id
+					//updateItemForId(idInDB);
+					
+				}
+			});
+		}
+		
+		public void searchNanny(View view, long idInDB) {
+			// GET intent for search nanny
+			Intent intent = new Intent(this, ProfilActivity.class);
+			
+			intent.putExtra(EXTRA_ID, idInDB+"");
+			
+			// LAUNCH
+		    startActivity(intent);
+		}
+		
+		
 }
