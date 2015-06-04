@@ -101,6 +101,11 @@ public class MainActivity extends Activity {
 	    startActivity(intent);
 	}
 	
+	public void startContact(View view) {
+		Intent intent = new Intent(this, ContactNanny.class);
+		startActivity(intent);
+	}
+	
 	public void getLocation(View view) throws IOException {
 		// GET locationManager
 		LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
