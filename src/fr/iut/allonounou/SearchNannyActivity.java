@@ -9,11 +9,15 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
+
 
 public class SearchNannyActivity extends Activity {
+	public final static String EXTRA_ID = "fr.iut.allonounou.ID";
 	
 	private String nannyName;
 	private double[] location;
@@ -38,24 +42,8 @@ public class SearchNannyActivity extends Activity {
 		InitiateBD();
 		
 		populateListViewFromDB();
+		registerListClickCallback();
 		
-	
-		//myDB.insertPersonne();
-		//TextView textview = (TextView)findViewById(R.id.title);
-		//TextView textview1 = (TextView)findViewById(R.id.artiste);
-
-		// R√©cup√©ration des cha√Ænes dans la base de donn√©es.
-		
-		//List<String> list = myDB.getPersonne();
-
-		/*String values = "";
-		for(int i = 0 ; i < list.size() ;  ++i) {
-			values += list.get(i) + " ";
-		}*/
-
-		// Concat√©nation des chaines pour affichage
-		//textview.setText(list.get(0));
-		//textview1.setText(list.get(1));
 	}
 	
 	@Override
@@ -77,16 +65,16 @@ public class SearchNannyActivity extends Activity {
 	 * UI Button Callbacks
 	 */
 	public void InitiateBD() {
-		// nom et pr√©nom, nb de place dipo, indic adress, longitude, latitude, mail, prix, workplace, favori
-		myDB.insertRow("Jacqueline TUILARD" ,1, "quartier Blossi√®re",0,0,"t-benjamin@hotmail.fr",12,"appartement",1);
-		myDB.insertRow("Maelle LEBON" ,3, "pr√®s de la gare",0,0,"t-benjamin@hotmail.fr",8,"appartement",0);
+		// nom et prÈnom, nb de place dipo, indic adress, longitude, latitude, mail, prix, workplace, favori
+		myDB.insertRow("Jacqueline TUILARD" ,1, "quartier BlossiËre",0,0,"t-benjamin@hotmail.fr",12,"appartement",1);
+		myDB.insertRow("Maelle LEBON" ,3, "prËs de la gare",0,0,"t-benjamin@hotmail.fr",8,"appartement",0);
 		myDB.insertRow("Lilianne MARECHAL" ,2, "bord de Loire",0,0,"t-benjamin@hotmail.fr",10,"maison",0);
 		myDB.insertRow("Catherine DUPONT" ,0, "Parc des Expositions",0,0,"t-benjamin@hotmail.fr",11,"appartement",0);
-		myDB.insertRow("Joelle MARTIN" ,0, "pr√®s de la gare",0,0,"t-benjamin@hotmail.fr",7,"maison",0);
-		myDB.insertRow("Brigitte LEPONDEL" ,1, "pr√®s de la gare",0,0,"t-benjamin@hotmail.fr",14,"maison",0);
-		myDB.insertRow("Maelle COURVA" ,1, "quartier Blossi√®re",0,0,"t-benjamin@hotmail.fr",20,"appartement",0);
+		myDB.insertRow("Joelle MARTIN" ,0, "prËs de la gare",0,0,"t-benjamin@hotmail.fr",7,"maison",0);
+		myDB.insertRow("Brigitte LEPONDEL" ,1, "prËs de la gare",0,0,"t-benjamin@hotmail.fr",14,"maison",0);
+		myDB.insertRow("Maelle COURVA" ,1, "quartier BlossiËre",0,0,"t-benjamin@hotmail.fr",20,"appartement",0);
 		myDB.insertRow("Maelle SILVA" ,2, "bord de Loire",0,0,"t-benjamin@hotmail.fr",15,"appartement",0);
-		myDB.insertRow("Diana MARTIN" ,4, "pr√®s de la gare",0,0,"t-benjamin@hotmail.fr",18,"maison",1);
+		myDB.insertRow("Diana MARTIN" ,4, "prËs de la gare",0,0,"t-benjamin@hotmail.fr",18,"maison",1);
 		
 	}
 	
@@ -97,9 +85,7 @@ public class SearchNannyActivity extends Activity {
 
 	
 	private void populateListViewFromDB() {
-
 		Cursor cursor = myDB.getAllRows();
-
 		// Allow activity to manage lifetime of the cursor.
 		// DEPRECATED! Runs on the UI thread, OK for small/short queries.
 		startManagingCursor(cursor);
@@ -128,4 +114,33 @@ public class SearchNannyActivity extends Activity {
 		myList.setAdapter(myCursorAdapter);
 
 	}
+		
+	
+	
+		//dÈtection du clique sur un item
+		private void registerListClickCallback() {
+			ListView myList = (ListView) findViewById(R.id.listViewNanny);
+			myList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+				@Override
+				public void onItemClick(AdapterView<?> parent, View viewClicked, 
+						int position, long idInDB) {
+
+					//Lancement de l'activity profil en passant en paramËtre l'id
+					//updateItemForId(idInDB);
+					
+				}
+			});
+		}
+		
+		public void searchNanny(View view, long idInDB) {
+			// GET intent for search nanny
+			Intent intent = new Intent(this, ProfilActivity.class);
+			
+			intent.putExtra(EXTRA_ID, idInDB+"");
+			
+			// LAUNCH
+		    startActivity(intent);
+		}
+		
+		
 }
