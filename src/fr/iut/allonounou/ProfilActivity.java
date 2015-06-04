@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
@@ -32,6 +33,17 @@ public class ProfilActivity extends Activity {
 		
 		openDB();
 		recupData();
+		
+		Button btn_contact = (Button) findViewById(R.id.button1);
+		
+		// si clique sur Dmande de contact --> ouvre ContactNanny
+		btn_contact.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View v){
+				Intent openContactNanny = new Intent(ProfilActivity.this, ContactNanny.class);
+				startActivity(openContactNanny);
+			}
+		});
 	}
 	
 	@Override

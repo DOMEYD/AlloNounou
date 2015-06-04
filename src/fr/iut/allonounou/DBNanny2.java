@@ -24,6 +24,7 @@ public class DBNanny2{
 	public static final String KEY_LONGITUDE = "longitude";
 	public static final String KEY_LATITUDE = "latitude";
 	public static final String KEY_MAIL = "mail";
+	public static final String KEY_PHONE = "phone";
 	public static final String KEY_PRIX = "prix";
 	public static final String KEY_WORKPLACE = "workplace";
 	public static final String KEY_FAVORI = "favori";
@@ -35,11 +36,12 @@ public class DBNanny2{
 	public static final int COL_LONGITUDE = 4;
 	public static final int COL_LATITUDE = 5;
 	public static final int COL_MAIL = 6;
-	public static final int COL_PRIX = 7;
-	public static final int COL_WORKPLACE = 8;
-	public static final int COL_FAVORI = 9;
+	public static final int COL_PHONE = 7;
+	public static final int COL_PRIX = 8;
+	public static final int COL_WORKPLACE = 9;
+	public static final int COL_FAVORI = 10;
 	
-	public static final String[] ALL_KEYS = new String[] {KEY_ROWID, KEY_NAME, KEY_FREEPLACE, KEY_ADRESSE, KEY_LONGITUDE, KEY_LATITUDE, KEY_MAIL, KEY_PRIX, KEY_WORKPLACE, KEY_FAVORI};
+	public static final String[] ALL_KEYS = new String[] {KEY_ROWID, KEY_NAME, KEY_FREEPLACE, KEY_ADRESSE, KEY_LONGITUDE, KEY_LATITUDE, KEY_MAIL,KEY_PHONE, KEY_PRIX, KEY_WORKPLACE, KEY_FAVORI};
 	
 	public static final String DATABASE_NAME = "MyDb";
 	public static final String DATABASE_TABLE = "mainTable";
@@ -55,6 +57,7 @@ public class DBNanny2{
 			+ KEY_LONGITUDE + " integer not null, "
 			+ KEY_LATITUDE + " integer not null, "
 			+ KEY_MAIL + " text not null, "
+			+ KEY_PHONE + " text not null, "
 			+ KEY_PRIX + " text not null, "
 			+ KEY_WORKPLACE + " text not null, "
 			+ KEY_FAVORI + " integer not null"
@@ -83,7 +86,10 @@ public class DBNanny2{
 	}
 	
 		
-	public long insertRow(String name, int freeplace, String adresse, int longitude, int latitude, String mail, int prix, String workplace, int favori) {
+	  /**
+     *Ajout d'un nouveau profil
+     */
+	public long insertRow(String name, int freeplace, String adresse, int longitude, int latitude, String mail,String phone, int prix, String workplace, int favori) {
 		ContentValues initialValues = new ContentValues();
 		initialValues.put(KEY_NAME, name);
 		initialValues.put(KEY_FREEPLACE, freeplace+" place(s) dispo(s)");
@@ -91,6 +97,7 @@ public class DBNanny2{
 		initialValues.put(KEY_LONGITUDE, longitude);
 		initialValues.put(KEY_LATITUDE, latitude);
 		initialValues.put(KEY_MAIL, mail);
+		initialValues.put(KEY_PHONE, phone);
 		initialValues.put(KEY_PRIX, prix +" €/heure");
 		initialValues.put(KEY_WORKPLACE, workplace);
 		initialValues.put(KEY_FAVORI, favori);
@@ -98,12 +105,18 @@ public class DBNanny2{
 		return db.insert(DATABASE_TABLE, null, initialValues);
 	}
 	
+	  /**
+     *Suppression d'un profil
+     */
 	// Delete a row from the database, by rowId (primary key)
 	public boolean deleteRow(long rowId) {
 		String where = KEY_ROWID + "=" + rowId;
 		return db.delete(DATABASE_TABLE, where, null) != 0;
 	}
 	
+	  /**
+     *Suppresion de tous les profils
+     */
 	public void deleteAll() {
 		Cursor c = getAllRows();
 		long rowId = c.getColumnIndexOrThrow(KEY_ROWID);
@@ -115,7 +128,9 @@ public class DBNanny2{
 		c.close();
 	}
 	
-	
+	  /**
+     *Récupération de l'ensemble des profils et de leurs données
+     */
 	public Cursor getAllRows() {
 		String where = null;
 		Cursor c = 	db.query(true, DATABASE_TABLE, ALL_KEYS, 
@@ -126,6 +141,9 @@ public class DBNanny2{
 		return c;
 	}
 
+	  /**
+     *Récupération des données d'un profil spécifique
+     */
 	// Get a specific row (by rowId)
 	public Cursor getRow(String key, String condition) {
 		String where = key + "=" + condition;
@@ -138,8 +156,10 @@ public class DBNanny2{
 	}
 	
 		
-	// Change an existing row to be equal to new data.
-		public boolean updateRow(long rowId, String name, String freeplace, String adresse, int longitude, int latitude, String mail, int prix, String workplace, int favori) {
+	  /**
+     *Changement des données relatif à un profil
+     */
+		public boolean updateRow(long rowId, String name, String freeplace, String adresse, int longitude, int latitude, String mail, String phone,int prix, String workplace, int favori) {
 			String where = KEY_ROWID + "=" + rowId;
 			ContentValues newValues = new ContentValues();
 			newValues.put(KEY_NAME, name);
@@ -148,6 +168,7 @@ public class DBNanny2{
 			newValues.put(KEY_LONGITUDE, longitude);
 			newValues.put(KEY_LATITUDE, latitude);
 			newValues.put(KEY_MAIL, mail);
+			newValues.put(KEY_PHONE, phone);
 			newValues.put(KEY_PRIX, prix +" €/heure");
 			newValues.put(KEY_WORKPLACE, workplace);
 			newValues.put(KEY_FAVORI, favori);
