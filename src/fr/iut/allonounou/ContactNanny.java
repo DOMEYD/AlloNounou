@@ -55,33 +55,50 @@ public class ContactNanny extends Activity
 		final Spinner info_age= (Spinner) findViewById(R.id.info_age);
 		final Spinner info_sexe= (Spinner) findViewById(R.id.info_sexe);
 		
-		final EditText houre_arr = (EditText) findViewById(R.id.houre_arr);
-		final EditText minute_arr = (EditText) findViewById(R.id.minute_arr);
-		final EditText houre_dep = (EditText) findViewById(R.id.houre_dep);
-		final EditText minute_dep = (EditText) findViewById(R.id.minute_dep);
+		final NumberPicker houre_arr = (NumberPicker) findViewById(R.id.houre_arr);
+		final NumberPicker minute_arr = (NumberPicker) findViewById(R.id.minute_arr);
+		final NumberPicker houre_dep = (NumberPicker) findViewById(R.id.houre_dep);
+		final NumberPicker minute_dep = (NumberPicker) findViewById(R.id.minute_dep);
 		
+		houre_arr.setMinValue(00);
+		houre_arr.setMaxValue(23);
+		houre_arr.setWrapSelectorWheel(false); 
+		
+		minute_arr.setMinValue(00);
+		minute_arr.setMaxValue(59);
+		minute_arr.setWrapSelectorWheel(false); 
+		
+		houre_dep.setMinValue(00);
+		houre_dep.setMaxValue(23);
+		houre_dep.setWrapSelectorWheel(false); 
+		
+		minute_dep.setMinValue(00);
+		minute_dep.setMaxValue(59);
+		minute_dep.setWrapSelectorWheel(false); 
+        
 		// Toucher le bouton "Envoyer" 
 		btn_send.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v){
 				Intent openSummaryActivity = new Intent(ContactNanny.this, SummaryContact.class);
+				openSummaryActivity.putExtra(USER_NAME, edit_name.getText().toString());
+				openSummaryActivity.putExtra(USER_PHONE, edit_phone.getText().toString());
+				openSummaryActivity.putExtra(USER_EMAIL, edit_email.getText().toString());
+				openSummaryActivity.putExtra(USER_MESSAGE, edit_message.getText().toString());
+				
 				openSummaryActivity.putExtra(CHILD_NAME, edit_childname.getText().toString());
 				openSummaryActivity.putExtra(CHILD_AGED, edit_aged.getText().toString());
 				openSummaryActivity.putExtra(INFO_CHILD_AGE, info_age.getSelectedItem().toString());
-				openSummaryActivity.putExtra(HOURE_ARR, houre_arr.getText().toString());
-				openSummaryActivity.putExtra(MINUTE_ARR, minute_arr.getText().toString());
-				openSummaryActivity.putExtra(HOURE_DEP, houre_dep.getText().toString());
-				openSummaryActivity.putExtra(MINUTE_DEP, minute_dep.getText().toString());
-				openSummaryActivity.putExtra(USER_PHONE, edit_phone.getText().toString());
+				
+				openSummaryActivity.putExtra(HOURE_ARR, String.valueOf(houre_arr.getValue()));
+				openSummaryActivity.putExtra(MINUTE_ARR, String.valueOf(minute_arr.getValue()));
+				openSummaryActivity.putExtra(HOURE_DEP, String.valueOf(houre_dep.getValue()));
+				openSummaryActivity.putExtra(MINUTE_DEP, String.valueOf(minute_dep.getValue()));
 				
 				if(TextUtils.isEmpty(edit_name.getText().toString()) || TextUtils.isEmpty(edit_email.getText().toString()) || TextUtils.isEmpty(edit_phone.getText().toString()) || TextUtils.isEmpty(edit_message.getText().toString()) || TextUtils.isEmpty(edit_aged.getText().toString()) || TextUtils.isEmpty(edit_childname.getText().toString())) {
 					Toast.makeText(getApplicationContext(), "Informations manquantes", Toast.LENGTH_SHORT).show();
 				} 
-				else if(TextUtils.isEmpty(houre_arr.getText().toString()) && TextUtils.isEmpty(minute_arr.getText().toString()) && TextUtils.isEmpty(houre_dep.getText().toString()) && TextUtils.isEmpty(minute_dep.getText().toString())) {
-					Toast.makeText(getApplicationContext(), "Veillez remplir tout les champs d'horaire", Toast.LENGTH_SHORT).show();
-				}
-				else
-				{
+				else {
 					startActivity(openSummaryActivity);
 				}
 			}
@@ -97,7 +114,5 @@ public class ContactNanny extends Activity
 		R.array.infosexe_array, android.R.layout.simple_spinner_item);
 		infosexe.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		info_sexe.setAdapter(infosexe);
-		
-		
     }
 }

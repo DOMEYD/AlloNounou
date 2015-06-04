@@ -29,7 +29,11 @@ public class SummaryContact extends Activity {
 		Intent intent = getIntent();
 		
 		// Récupération des éléments du formaire et mise à jour des données pour le résumé
-		   
+		
+		String GET_USER_NAME = intent.getStringExtra(ContactNanny.USER_NAME);
+		String GET_USER_EMAIL = intent.getStringExtra(ContactNanny.USER_EMAIL);
+		String GET_USER_MESSAGE = intent.getStringExtra(ContactNanny.USER_MESSAGE);
+		
 		String GET_CHILD_NAME = intent.getStringExtra(ContactNanny.CHILD_NAME);
 		sum_name.setText(GET_CHILD_NAME);
 		
@@ -45,20 +49,23 @@ public class SummaryContact extends Activity {
 		String GET_MINUTE_ARR = intent.getStringExtra(ContactNanny.MINUTE_ARR);
 		arr_m.setText(GET_MINUTE_ARR);
 		
+		String ARR = GET_HOURE_ARR + "h" + GET_MINUTE_ARR;
+		
 		String GET_HOURE_DEP = intent.getStringExtra(ContactNanny.HOURE_DEP);
 		dep_h.setText(GET_HOURE_DEP);
 		
 		String GET_MINUTE_DEP = intent.getStringExtra(ContactNanny.MINUTE_DEP);
 		dep_m.setText(GET_MINUTE_DEP);
 		
+		String DEP = GET_HOURE_DEP + "h" + GET_MINUTE_DEP;
+		
 		final String NUM_TEL = intent.getStringExtra(ContactNanny.USER_PHONE);
 		
-		final String MSG = "TEST";
+		final String MSG = "Vous venez de recevoir une demande de garde de :\n" + GET_CHILD_NAME + " (" + GET_CHILD_AGED + " " + GET_INFO_CHILD_AGE + ")\n" + "De " + ARR + " à " + DEP + "\n" + "Veiller prendre contact avec " + GET_USER_NAME + " (" + NUM_TEL + ")";
 		
 		// Si touche le bouton OK, revient à l'activité principale et envoit un SMS
 		summary_ok.setOnClickListener(new View.OnClickListener(){
 			
-			@SuppressWarnings("deprecation")
 			@Override
 			public void onClick(View v){
 				Intent intent = new Intent(SummaryContact.this, MainActivity.class);
