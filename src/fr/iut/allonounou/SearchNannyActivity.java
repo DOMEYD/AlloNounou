@@ -9,8 +9,6 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
@@ -33,19 +31,6 @@ public class SearchNannyActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_search2);
 		
-		/* Jean-Yves (Je veux pouvoir acceder à nannyPtofil mais comment ?)
-		
-		Button button = (Button) findViewById (R.id.button1);
-		// si clique ouvre NannyProfil
-		button.setOnClickListener(new View.OnClickListener(){
-			@Override
-			public void onClick(View v){
-				Intent openNannyProfil = new Intent(SearchNannyActivity.this, NannyProfil.class);
-
-				startActivity(openNannyProfil);
-			}
-		});
-		*/
 		openDB();
 	
 		//initiate DATABASE
@@ -59,7 +44,7 @@ public class SearchNannyActivity extends Activity {
 		//TextView textview = (TextView)findViewById(R.id.title);
 		//TextView textview1 = (TextView)findViewById(R.id.artiste);
 
-		// Récupération des chaînes dans la base de données.
+		// RÃ©cupÃ©ration des chaÃ®nes dans la base de donnÃ©es.
 		
 		//List<String> list = myDB.getPersonne();
 
@@ -68,7 +53,7 @@ public class SearchNannyActivity extends Activity {
 			values += list.get(i) + " ";
 		}*/
 
-		// Concaténation des chaines pour affichage
+		// ConcatÃ©nation des chaines pour affichage
 		//textview.setText(list.get(0));
 		//textview1.setText(list.get(1));
 	}
@@ -92,16 +77,16 @@ public class SearchNannyActivity extends Activity {
 	 * UI Button Callbacks
 	 */
 	public void InitiateBD() {
-		// nom et prénom, nb de place dipo, indic adress, longitude, latitude, mail, prix, workplace, favori
-		myDB.insertRow("Jacqueline TUILARD" ,1, "quartier Blossière",0,0,"t-benjamin@hotmail.fr",12,"appartement",1);
-		myDB.insertRow("Maelle LEBON" ,3, "près de la gare",0,0,"t-benjamin@hotmail.fr",8,"appartement",0);
+		// nom et prÃ©nom, nb de place dipo, indic adress, longitude, latitude, mail, prix, workplace, favori
+		myDB.insertRow("Jacqueline TUILARD" ,1, "quartier BlossiÃ¨re",0,0,"t-benjamin@hotmail.fr",12,"appartement",1);
+		myDB.insertRow("Maelle LEBON" ,3, "prÃ¨s de la gare",0,0,"t-benjamin@hotmail.fr",8,"appartement",0);
 		myDB.insertRow("Lilianne MARECHAL" ,2, "bord de Loire",0,0,"t-benjamin@hotmail.fr",10,"maison",0);
 		myDB.insertRow("Catherine DUPONT" ,0, "Parc des Expositions",0,0,"t-benjamin@hotmail.fr",11,"appartement",0);
-		myDB.insertRow("Joelle MARTIN" ,0, "près de la gare",0,0,"t-benjamin@hotmail.fr",7,"maison",0);
-		myDB.insertRow("Brigitte LEPONDEL" ,1, "près de la gare",0,0,"t-benjamin@hotmail.fr",14,"maison",0);
-		myDB.insertRow("Maelle COURVA" ,1, "quartier Blossière",0,0,"t-benjamin@hotmail.fr",20,"appartement",0);
+		myDB.insertRow("Joelle MARTIN" ,0, "prÃ¨s de la gare",0,0,"t-benjamin@hotmail.fr",7,"maison",0);
+		myDB.insertRow("Brigitte LEPONDEL" ,1, "prÃ¨s de la gare",0,0,"t-benjamin@hotmail.fr",14,"maison",0);
+		myDB.insertRow("Maelle COURVA" ,1, "quartier BlossiÃ¨re",0,0,"t-benjamin@hotmail.fr",20,"appartement",0);
 		myDB.insertRow("Maelle SILVA" ,2, "bord de Loire",0,0,"t-benjamin@hotmail.fr",15,"appartement",0);
-		myDB.insertRow("Diana MARTIN" ,4, "près de la gare",0,0,"t-benjamin@hotmail.fr",18,"maison",1);
+		myDB.insertRow("Diana MARTIN" ,4, "prÃ¨s de la gare",0,0,"t-benjamin@hotmail.fr",18,"maison",1);
 		
 	}
 	
