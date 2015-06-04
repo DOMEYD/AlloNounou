@@ -34,7 +34,7 @@ public class ProfilActivity extends Activity {
 		openDB();
 		recupData();
 		
-		Button btn_contact = (Button) findViewById(R.id.button1);
+		Button btn_contact = (Button) findViewById(R.id.contact_profil);
 		
 		// si clique sur Dmande de contact --> ouvre ContactNanny
 		btn_contact.setOnClickListener(new View.OnClickListener(){
