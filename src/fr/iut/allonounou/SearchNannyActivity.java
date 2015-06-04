@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
@@ -42,7 +43,7 @@ public class SearchNannyActivity extends Activity {
 		InitiateBD();
 		
 		populateListViewFromDB();
-		registerListClickCallback();
+		// registerListClickCallback();
 		
 	}
 	
@@ -64,6 +65,7 @@ public class SearchNannyActivity extends Activity {
 	/* 
 	 * UI Button Callbacks
 	 */
+	
 	public void InitiateBD() {
 		// nom et prénom, nb de place dipo, indic adress, longitude, latitude, mail, prix, workplace, favori
 		myDB.insertRow("Jacqueline TUILARD" ,1, "quartier Blossière",0,0,"t-benjamin@hotmail.fr","0662685281",12,"appartement",1);
@@ -110,11 +112,19 @@ public class SearchNannyActivity extends Activity {
 
 		// Set the adapter for the list view
 		ListView myList = (ListView) findViewById(R.id.listViewNanny);
-
+		myList.setOnItemClickListener(profilClickListener);
 		myList.setAdapter(myCursorAdapter);
 
 	}
-		
+	
+		public OnItemClickListener profilClickListener = new OnItemClickListener() {
+		 @Override
+			public void onItemClick(AdapterView<?> av, View v, int arg2, long arg3)
+			{			
+			 searchNanny(arg3);
+				
+			}
+	 };	
 	
 	
 		//détection du clique sur un item
@@ -127,12 +137,13 @@ public class SearchNannyActivity extends Activity {
 
 					//Lancement de l'activity profil en passant en paramètre l'id
 					//updateItemForId(idInDB);
-					
+					searchNanny(idInDB);
 				}
 			});
 		}
 		
-		public void searchNanny(View view, long idInDB) {
+		
+		public void searchNanny(long idInDB) {
 			// GET intent for search nanny
 			Intent intent = new Intent(this, ProfilActivity.class);
 			

@@ -35,7 +35,7 @@
 	          android:label="@string/app_name"/>
 	       
 		<activity 
-	          android:name=".NannyProfil"
+	          android:name=".ProfilActivity"
 	          android:label="@string/app_name"/>
 	       
 		<activity 
