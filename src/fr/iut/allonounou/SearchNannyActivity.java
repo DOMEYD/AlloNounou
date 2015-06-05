@@ -67,16 +67,20 @@ public class SearchNannyActivity extends Activity {
 	 */
 	
 	public void InitiateBD() {
-		// nom et prénom, nb de place dipo, indic adress, longitude, latitude, mail, prix, workplace, favori
-		myDB.insertRow("Jacqueline TUILARD" ,1, "quartier Blossière",0,0,"t-benjamin@hotmail.fr","0662685281",12,"appartement",1);
-		myDB.insertRow("Maelle LEBON" ,3, "près de la gare",0,0,"t-benjamin@hotmail.fr","0662685281",8,"appartement",0);
-		myDB.insertRow("Lilianne MARECHAL" ,2, "bord de Loire",0,0,"t-benjamin@hotmail.fr","0662685281",10,"maison",0);
-		myDB.insertRow("Catherine DUPONT" ,0, "Parc des Expositions",0,0,"t-benjamin@hotmail.fr","0662685281",11,"appartement",0);
-		myDB.insertRow("Joelle MARTIN" ,0, "près de la gare",0,0,"t-benjamin@hotmail.fr","0662685281",7,"maison",0);
-		myDB.insertRow("Brigitte LEPONDEL" ,1, "près de la gare",0,0,"t-benjamin@hotmail.fr","0662685281",14,"maison",0);
-		myDB.insertRow("Maelle COURVA" ,1, "quartier Blossière",0,0,"t-benjamin@hotmail.fr","0662685281",20,"appartement",0);
-		myDB.insertRow("Maelle SILVA" ,2, "bord de Loire",0,0,"t-benjamin@hotmail.fr","0662685281",15,"appartement",0);
-		myDB.insertRow("Diana MARTIN" ,4, "près de la gare",0,0,"t-benjamin@hotmail.fr","0662685281",18,"maison",1);
+		// nom et prénom,    nb de place dipo,    indic adress,     longitude,    latitude,    mail,    prix,    workplace
+		myDB.insertRow("Jacqueline TUILARD" ,1, "quartier Blossière",0,0,"t-benjamin@hotmail.fr","0662685281",12,"appartement");
+		myDB.insertRow("Maelle LEBON" ,3, "près de la gare",0,0,"t-benjamin@hotmail.fr","0662685281",8,"appartement");
+		myDB.insertRow("Lilianne MARECHAL" ,2, "bord de Loire",0,0,"t-benjamin@hotmail.fr","0662685281",10,"maison");
+		myDB.insertRow("Catherine DUPONT" ,0, "Parc des Expositions",0,0,"t-benjamin@hotmail.fr","0662685281",11,"appartement");
+		myDB.insertRow("Joelle MARTIN" ,0, "près de la gare",0,0,"t-benjamin@hotmail.fr","0662685281",7,"maison");
+		myDB.insertRow("Brigitte LEPONDEL" ,1, "près de la gare",0,0,"t-benjamin@hotmail.fr","0662685281",14,"maison");
+		myDB.insertRow("Maelle COURVA" ,1, "quartier Blossière",0,0,"t-benjamin@hotmail.fr","0662685281",20,"appartement");
+		myDB.insertRow("Maelle SILVA" ,2, "bord de Loire",0,0,"t-benjamin@hotmail.fr","0662685281",15,"appartement");
+		myDB.insertRow("Diana MARTIN" ,4, "près de la gare",0,0,"t-benjamin@hotmail.fr","0662685281",18,"maison");
+		myDB.insertRow("Diana GRATADE" ,4, "Orléans Sud",0,0,"t-benjamin@hotmail.fr","0662685281",9,"appartement");
+		myDB.insertRow("Benjamin TUILARD" ,2, "Orléans Sud",0,0,"t-benjamin@hotmail.fr","0662685281",10,"appartement");
+		myDB.insertRow("Dimitri DOMEY" ,1, "Orléans Sud",0,0,"t-benjamin@hotmail.fr","0662685281",45,"maison");
+		myDB.insertRow("Jean-Yves NUBRET" ,6, "Orléans Sud",0,0,"t-benjamin@hotmail.fr","0662685281",1,"maison");
 		
 	}
 	

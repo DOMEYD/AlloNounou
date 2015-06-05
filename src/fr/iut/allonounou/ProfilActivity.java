@@ -79,7 +79,6 @@ public class ProfilActivity extends Activity {
 			adresse  = cursor.getString(DBNanny2.COL_ADRESSE);
 			prix = cursor.getString(DBNanny2.COL_PRIX);
 			workplace = cursor.getString(DBNanny2.COL_WORKPLACE);
-			favori = cursor.getInt(DBNanny2.COL_FAVORI);
 		}
 		cursor.close();
 		

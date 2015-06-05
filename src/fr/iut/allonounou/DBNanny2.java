@@ -27,7 +27,7 @@ public class DBNanny2{
 	public static final String KEY_PHONE = "phone";
 	public static final String KEY_PRIX = "prix";
 	public static final String KEY_WORKPLACE = "workplace";
-	public static final String KEY_FAVORI = "favori";
+
 	
 	// TODO: Setup your field numbers here (0 = KEY_ROWID, 1=...)
 	public static final int COL_NAME = 1;
@@ -39,9 +39,9 @@ public class DBNanny2{
 	public static final int COL_PHONE = 7;
 	public static final int COL_PRIX = 8;
 	public static final int COL_WORKPLACE = 9;
-	public static final int COL_FAVORI = 10;
+
 	
-	public static final String[] ALL_KEYS = new String[] {KEY_ROWID, KEY_NAME, KEY_FREEPLACE, KEY_ADRESSE, KEY_LONGITUDE, KEY_LATITUDE, KEY_MAIL,KEY_PHONE, KEY_PRIX, KEY_WORKPLACE, KEY_FAVORI};
+	public static final String[] ALL_KEYS = new String[] {KEY_ROWID, KEY_NAME, KEY_FREEPLACE, KEY_ADRESSE, KEY_LONGITUDE, KEY_LATITUDE, KEY_MAIL,KEY_PHONE, KEY_PRIX, KEY_WORKPLACE};
 	
 	public static final String DATABASE_NAME = "MyDb";
 	public static final String DATABASE_TABLE = "mainTable";
@@ -59,8 +59,7 @@ public class DBNanny2{
 			+ KEY_MAIL + " text not null, "
 			+ KEY_PHONE + " text not null, "
 			+ KEY_PRIX + " text not null, "
-			+ KEY_WORKPLACE + " text not null, "
-			+ KEY_FAVORI + " integer not null"
+			+ KEY_WORKPLACE + " text not null "
 			+ ");";
 	
 	private final Context context;
@@ -89,7 +88,7 @@ public class DBNanny2{
 	  /**
      *Ajout d'un nouveau profil
      */
-	public long insertRow(String name, int freeplace, String adresse, int longitude, int latitude, String mail,String phone, int prix, String workplace, int favori) {
+	public long insertRow(String name, int freeplace, String adresse, int longitude, int latitude, String mail,String phone, int prix, String workplace) {
 		ContentValues initialValues = new ContentValues();
 		initialValues.put(KEY_NAME, name);
 		initialValues.put(KEY_FREEPLACE, freeplace+" place(s) dispo(s)");
@@ -100,7 +99,7 @@ public class DBNanny2{
 		initialValues.put(KEY_PHONE, phone);
 		initialValues.put(KEY_PRIX, prix +" €/heure");
 		initialValues.put(KEY_WORKPLACE, workplace);
-		initialValues.put(KEY_FAVORI, favori);
+
 		// Insert it into the database.
 		return db.insert(DATABASE_TABLE, null, initialValues);
 	}
@@ -159,7 +158,7 @@ public class DBNanny2{
 	  /**
      *Changement des données relatif à un profil
      */
-		public boolean updateRow(long rowId, String name, String freeplace, String adresse, int longitude, int latitude, String mail, String phone,int prix, String workplace, int favori) {
+		public boolean updateRow(long rowId, String name, String freeplace, String adresse, int longitude, int latitude, String mail, String phone,int prix, String workplace) {
 			String where = KEY_ROWID + "=" + rowId;
 			ContentValues newValues = new ContentValues();
 			newValues.put(KEY_NAME, name);
@@ -171,7 +170,7 @@ public class DBNanny2{
 			newValues.put(KEY_PHONE, phone);
 			newValues.put(KEY_PRIX, prix +" €/heure");
 			newValues.put(KEY_WORKPLACE, workplace);
-			newValues.put(KEY_FAVORI, favori);
+
 			// Insert it into the database.
 			return db.update(DATABASE_TABLE, newValues, where, null) != 0;
 		}
