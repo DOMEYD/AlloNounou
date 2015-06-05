@@ -13,7 +13,7 @@
 	        android:layout_height="30dp"
 	        android:background="#74ABAA"
 	        android:gravity="center"
-	        android:text="Vous"
+	        android:text="Profil de l'assistante"
 	        android:textAppearance="?android:attr/textAppearanceLarge"
 	        android:textColor="#FFFFFF" />
 
@@ -25,83 +25,43 @@
 			android:background="#B795A5">
 
 			<LinearLayout
-				android:layout_height="wrap_content"
-				android:layout_width="match_parent"
-				android:orientation="horizontal"
-				android:layout_marginBottom="10dp"
-				android:background="#C4C4C4">
+			    android:layout_width="match_parent"
+			    android:layout_height="match_parent"
+			    android:layout_marginBottom="10dp"
+			    android:background="#C4C4C4"
+			    android:orientation="horizontal" >
 
 				<ImageView
-					android:layout_height="35dp"
-					android:layout_width="35dp"
-					android:src="@drawable/name"
-					android:layout_gravity="center_vertical"
-					android:layout_marginRight="5dp"
-					android:layout_marginLeft="5dp"/>
+				    android:id="@+id/ic_nurse"
+				    android:layout_width="65dip"
+				    android:layout_height="65dip"
+				    android:src="@drawable/ic_nurse_thor" 
+				    />
 
-				<EditText
-				    android:id="@+id/edit_name"
-				    android:layout_width="match_parent"
-				    android:layout_height="wrap_content"
-				    android:background="#FFFFFF"
-				    android:ems="10"
-				    android:height="40dp"
-				    android:hint="Prénom NOM"
-				    android:inputType="text"
-				    android:padding="10dp" />
-
-			</LinearLayout>
-
-			<LinearLayout
-				android:layout_height="wrap_content"
-				android:layout_width="match_parent"
-				android:orientation="horizontal"
-				android:layout_marginBottom="10dp"
-				android:background="#C4C4C4">
-
-				<ImageView
-					android:layout_height="35dp"
-					android:layout_width="35dp"
-					android:src="@drawable/email"
-					android:layout_marginRight="5dp"
-					android:layout_marginLeft="5dp"
-					android:layout_gravity="center_vertical"/>
-
-				<EditText
-				    android:id="@+id/edit_email"
-				    android:layout_width="match_parent"
-				    android:layout_height="wrap_content"
-				    android:background="#FFFFFF"
-				    android:ems="10"
-				    android:hint="Adresse E-mail"
-				    android:inputType="text"
-				    android:padding="10dp" />
-
-			</LinearLayout>
-
-			<LinearLayout
-				android:layout_height="wrap_content"
-				android:layout_width="match_parent"
-				android:orientation="horizontal"
-				android:background="#C4C4C4">
-
-				<ImageView
-					android:layout_height="35dp"
-					android:layout_width="35dp"
-					android:src="@drawable/phone"
-					android:layout_gravity="center_vertical"
-					android:layout_marginRight="5dp"
-					android:layout_marginLeft="5dp"/>
-
-				<EditText
-				    android:id="@+id/edit_phone"
-				    android:layout_width="match_parent"
-				    android:layout_height="wrap_content"
-				    android:background="#FEFEFE"
-				    android:ems="10"
-				    android:hint="Téléphone"
-				    android:inputType="phone"
-				    android:padding="10dp" />
+				
+				
+				<TextView 
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/thumbnail"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:text="Prénom NOM"
+        android:textColor="#040404"
+        android:typeface="sans"
+        android:textSize="18dip"
+        android:textStyle="bold"/>
+				
+				<TextView
+        android:id="@+id/artiste"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/name_nurse"
+        android:layout_below="@+id/name_nurse"
+        android:text="Indication Adresse"
+        android:textColor="#343434"
+        android:textSize="12dip" 
+        android:textStyle="italic"/>
 
 			</LinearLayout>
 
@@ -141,7 +101,7 @@
 			android:layout_height="30dp"
 			android:textAppearance="?android:attr/textAppearanceLarge"
 			android:layout_width="match_parent"
-			android:text="Enfant"
+			android:text="Enfants"
 			android:gravity="center"
 			android:background="#74ABAA"
 			android:textColor="#FFFFFF"/>
@@ -334,7 +294,7 @@
 		    
 			android:layout_height="match_parent"
 			android:layout_width="match_parent"
-			android:text="Envoyer la demande"
+			android:text="Demande de contact"
 			android:background="#DE7972"
 			android:id="@+id/btn_send"/>
 
