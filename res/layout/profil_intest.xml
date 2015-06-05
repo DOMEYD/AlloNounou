@@ -24,76 +24,48 @@
 			android:padding="10dp"
 			android:background="#B795A5">
 
-			<LinearLayout
+			<RelativeLayout
 			    android:layout_width="match_parent"
 			    android:layout_height="match_parent"
-			    android:layout_marginBottom="10dp"
+			    android:layout_marginBottom="5dp"
 			    android:background="#C4C4C4"
 			    android:orientation="horizontal" >
+
+				<TextView
+				    android:id="@+id/title"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:layout_alignParentTop="true"
+				    android:layout_marginTop="5dp"
+				    android:layout_marginLeft="5dp"
+				    android:layout_toRightOf="@+id/ic_nurse"
+				    android:text="Prénom NOM"
+				    android:textColor="#040404"
+				    android:textSize="18dip"
+				    android:textStyle="bold"
+				    android:typeface="sans" />
+
+				<TextView
+				    android:id="@+id/artiste"
+				    android:layout_width="fill_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_alignLeft="@+id/title"
+				    android:layout_marginLeft="10dp"
+				    android:layout_below="@+id/title"
+				    android:text="Indication Adresse"
+				    android:textColor="#343434"
+				    android:textSize="12dip"
+				    android:textStyle="italic" />
 
 				<ImageView
 				    android:id="@+id/ic_nurse"
 				    android:layout_width="65dip"
 				    android:layout_height="65dip"
-				    android:src="@drawable/ic_nurse_thor" 
-				    />
+				    android:layout_alignParentLeft="true"
+				    android:layout_alignParentTop="true"
+				    android:src="@drawable/ic_nurse_thor" />
 
-				
-				
-				<TextView 
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/thumbnail"
-        android:layout_toRightOf="@+id/thumbnail"
-        android:text="Prénom NOM"
-        android:textColor="#040404"
-        android:typeface="sans"
-        android:textSize="18dip"
-        android:textStyle="bold"/>
-				
-				<TextView
-        android:id="@+id/artiste"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/name_nurse"
-        android:layout_below="@+id/name_nurse"
-        android:text="Indication Adresse"
-        android:textColor="#343434"
-        android:textSize="12dip" 
-        android:textStyle="italic"/>
-
-			</LinearLayout>
-
-		</LinearLayout>
-
-		<LinearLayout
-			android:layout_height="wrap_content"
-			android:layout_width="match_parent"
-			android:orientation="vertical"
-			android:gravity="center"
-			android:padding="10dp"
-			android:background="#E4BBCA">
-
-			<TextView
-				android:layout_height="wrap_content"
-				android:textAppearance="?android:attr/textAppearanceLarge"
-				android:layout_width="match_parent"
-				android:text="Votre message"
-				android:gravity="center"
-				android:background="#ABABAB"
-				android:textColor="#FFFFFF"/>
-
-			<EditText
-			    android:id="@+id/edit_message"
-			    android:layout_width="match_parent"
-			    android:layout_height="100dp"
-			    android:background="#FFFFFF"
-			    android:ems="10"
-			    android:gravity="top"
-			    android:hint="Votre message ..."
-			    android:inputType="textShortMessage"
-			    android:padding="10dp" />
+			</RelativeLayout>
 
 		</LinearLayout>
 
@@ -117,76 +89,101 @@
 			<LinearLayout
 				android:layout_height="wrap_content"
 				android:layout_width="match_parent"
-				android:orientation="horizontal"
+				android:orientation="vertical"
 				android:clipToPadding="true"
 				android:background="#739FC5"
 				android:layout_marginBottom="5dp">
 
-				<ImageView
-					android:layout_height="35dp"
-					android:layout_width="35dp"
-					android:src="@drawable/child"
-					android:layout_gravity="center_vertical"
-					android:layout_marginLeft="5dp"
-					android:layout_marginRight="5dp"/>
-
-				<EditText
-				    android:id="@+id/edit_childname"
+				<TextView
 				    android:layout_width="match_parent"
 				    android:layout_height="wrap_content"
-				    android:layout_gravity="center_vertical"
-				    android:background="#FFFFFF"
-				    android:ems="10"
-				    android:hint="Prénom NOM"
-				    android:inputType="text"
-				    android:padding="10dp" />
-
-			</LinearLayout>
-
-			<LinearLayout
-			    android:layout_width="match_parent"
-			    android:layout_height="45dp"
-			    android:orientation="horizontal" >
-
-				<EditText
-				    android:id="@+id/edit_aged"
-				    android:layout_width="60dp"
-				    android:layout_height="match_parent"
-				    android:background="#C4C4C4"
-				    android:ems="2"
-				    android:hint="Âge"
-				    android:inputType="number"
-				    android:maxLength="2"
-				    android:padding="10dp" >
-
-				    <requestFocus />
-				</EditText>
+				    android:background="#ABABAB"
+				    android:gravity="center"
+				    android:text="Je peux accueillir"
+				    android:layout_marginBottom="5dp"
+				    android:textAppearance="?android:attr/textAppearanceMedium"
+				    android:textColor="#FFFFFF"
+				    android:textStyle="italic" />
 
 				<LinearLayout
-				    android:layout_width="wrap_content"
-				    android:layout_height="45dp"
-				    android:background="#C4C4C4"
+				    android:layout_width="match_parent"
+				    android:layout_height="wrap_content"
+				    android:layout_marginBottom="5dp"
+				    android:background="#FFFFFF"
 				    android:orientation="horizontal" >
 
-					<Spinner
-					    android:id="@+id/info_age"
-					    android:layout_width="80dp"
-					    android:layout_height="match_parent"
-					    android:layout_marginRight="20dp" />
+				    <ImageView
+				        android:layout_width="25dp"
+				        android:layout_height="25dp"
+				        android:layout_gravity="center_vertical"
+				        android:layout_marginLeft="5dp"
+				        android:layout_marginRight="5dp"
+				        android:src="@drawable/ic_baby" />
 
+				    <TextView
+				        android:id="@+id/TextView02"
+				        android:layout_width="match_parent"
+				        android:layout_height="wrap_content"
+				        android:background="#FFFFFF"
+				        android:ems="10"
+				        android:height="40dp"
+				        android:hint="Nombre 0-3 ans"
+				        android:inputType="text"
+				        android:padding="10dp" />
 				</LinearLayout>
 
 				<LinearLayout
 				    android:layout_width="match_parent"
-				    android:layout_height="45dp"
-				    android:background="#739FC5"
-				    android:gravity="center"
+				    android:layout_height="wrap_content"
+				    android:layout_marginBottom="5dp"
+				    android:background="#FFFFFF"
 				    android:orientation="horizontal" >
 
-					<Spinner
-					    android:id="@+id/info_sexe"
-					    android:layout_width="100dp"
-					    android:layout_height="wrap_content" />
+				    <ImageView
+				        android:layout_width="25dp"
+				        android:layout_height="25dp"
+				        android:layout_gravity="center_vertical"
+				        android:layout_marginLeft="5dp"
+				        android:layout_marginRight="5dp"
+				        android:src="@drawable/ic_peri_girl" />
+
+				    <TextView
+				        android:id="@+id/TextView01"
+				        android:layout_width="match_parent"
+				        android:layout_height="wrap_content"
+				        android:background="#FFFFFF"
+				        android:ems="10"
+				        android:height="40dp"
+				        android:hint="Nombre 3-7 ans"
+				        android:inputType="text"
+				        android:padding="10dp" />
+				</LinearLayout>
+				
+				<LinearLayout
+					android:layout_height="wrap_content"
+					android:layout_width="match_parent"
+					android:orientation="horizontal"
+					android:layout_marginBottom="5dp"
+					android:background="#FFFFFF">
+
+					<ImageView
+						android:layout_height="25dp"
+						android:layout_width="25dp"
+						android:src="@drawable/ic_peri_boy"
+						android:layout_gravity="center_vertical"
+						android:layout_marginRight="5dp"
+						android:layout_marginLeft="5dp"/>
+	
+					<TextView
+					    android:id="@+id/edit_name"
+					    android:layout_width="match_parent"
+					    android:layout_height="wrap_content"
+					    android:background="#FFFFFF"
+					    android:ems="10"
+					    android:height="40dp"
+					    android:hint="Nombre 7-11 ans"
+					    android:inputType="text"
+					    android:padding="10dp" />
 
 				</LinearLayout>
 
@@ -194,12 +191,42 @@
 
 		</LinearLayout>
 
+		<LinearLayout
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:background="#E4BBCA"
+		    android:gravity="center"
+		    android:orientation="vertical"
+		    android:padding="10dp" >
+
+		    <TextView
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:background="#ABABAB"
+		        android:gravity="center"
+		        android:text="Le mot de l'assistante"
+		        android:textAppearance="?android:attr/textAppearanceMedium"
+		        android:textColor="#FFFFFF"
+		        android:textStyle="italic" />
+
+		    <TextView
+		        android:id="@+id/edit_message"
+		        android:layout_width="match_parent"
+		        android:layout_height="100dp"
+		        android:background="#FFFFFF"
+		        android:ems="10"
+		        android:gravity="top"
+		        android:hint="Votre message ..."
+		        android:inputType="textShortMessage"
+		        android:padding="10dp" />
+		</LinearLayout>
+
 		<TextView
 		    android:layout_width="match_parent"
 		    android:layout_height="30dp"
 		    android:background="#74ABAA"
 		    android:gravity="center"
-		    android:text="Horaires"
+		    android:text="Divers"
 		    android:textAppearance="?android:attr/textAppearanceLarge"
 		    android:textColor="#FFFFFF" />
 		
@@ -212,86 +239,343 @@
 		    android:orientation="vertical"
 		    android:padding="10dp" >
 
-		<TextView
-		    android:layout_width="match_parent"
-		    android:layout_height="fill_parent"
-		    android:background="#B3B3B3"
-		    android:gravity="center"
-		    android:padding="5dp"
-		    android:text="Heure de dépot de l&apos;enfant"
-		    android:textAppearance="?android:attr/textAppearanceMedium" />
+			<TextView
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:background="#ABABAB"
+			    android:gravity="center"
+			    android:text="Informations complémentaires"
+			    android:textAppearance="?android:attr/textAppearanceMedium"
+			    android:textColor="#FFFFFF"
+			    android:textStyle="italic" />
 
-		<LinearLayout
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:layout_marginBottom="10dp"
-		    android:orientation="horizontal"
-		    android:padding="10dp" >
+			<LinearLayout
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:layout_marginBottom="5dp"
+			    android:background="#739FC5"
+			    android:clipToPadding="true"
+			    android:orientation="horizontal" >
 
-		    <NumberPicker
-				android:id="@+id/houre_arr"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:layout_centerInParent="true"  />
+				<LinearLayout
+				    android:layout_width="93dp"
+				    android:layout_height="wrap_content"
+				    android:layout_marginLeft="5dp"
+				    android:background="#FFFFFF"
+				    android:orientation="vertical" >
 
-		    <TextView
-		        android:layout_width="wrap_content"
-		        android:layout_height="match_parent"
-		        android:gravity="center"
-		        android:text=":"
-		        android:textAppearance="?android:attr/textAppearanceMedium" />
-		    
-		    <NumberPicker
-				android:id="@+id/minute_arr"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:layout_centerInParent="true"  />
+					<RelativeLayout
+					    android:layout_width="93dp"
+					    android:layout_height="wrap_content"
+					    android:layout_marginBottom="5dp"
+					    android:background="#FFFFFF"
+					    android:orientation="horizontal" >
 
-		</LinearLayout>
+					    <ImageView
+					        android:id="@+id/ImageView08"
+					        android:layout_width="match_parent"
+					        android:layout_height="wrap_content"
+					        android:layout_alignParentLeft="true"
+					        android:layout_alignParentTop="true"
+					        android:layout_marginTop="5dp"
+					        android:src="@drawable/ic_repas"
+					        android:text="Prénom NOM"
+					        android:textColor="#040404"
+					        android:textSize="18dip"
+					        android:textStyle="bold"
+					        android:typeface="sans" />
 
-		<TextView
-		    android:layout_width="match_parent"
-		    android:layout_height="wrap_content"
-		    android:layout_gravity="center_horizontal"
-		    android:background="#B3B3B3"
-		    android:gravity="center"
-		    android:padding="5dp"
-		    android:text="Heure de récupération "
-		    android:textAppearance="?android:attr/textAppearanceMedium" />
-		
-		<LinearLayout
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:orientation="horizontal"
-		    android:padding="10dp" >
+					    <TextView
+					        android:id="@+id/TextView10"
+					        android:layout_width="match_parent"
+					        android:layout_height="wrap_content"
+					        android:layout_below="@+id/ImageView08"
+					        android:gravity="center"
+					        android:text="Oui/Non"
+					        android:textColor="#343434"
+					        android:textSize="12dip" />
+					</RelativeLayout>
 
-		    <NumberPicker
-				android:id="@+id/houre_dep"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:layout_centerInParent="true"  />
+					<RelativeLayout
+					    android:layout_width="93dp"
+					    android:layout_height="wrap_content"
+					    android:layout_marginBottom="5dp"
+					    android:background="#FFFFFF"
+					    android:orientation="horizontal" >
 
-		    <TextView
-		        android:layout_width="wrap_content"
-		        android:layout_height="match_parent"
-		        android:gravity="center"
-		        android:text=":"
-		        android:textAppearance="?android:attr/textAppearanceMedium" />
-		    
-		    <NumberPicker
-				android:id="@+id/minute_dep"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-		        android:layout_centerInParent="true"  />
+					    <ImageView
+					        android:id="@+id/ImageView07"
+					        android:layout_width="match_parent"
+					        android:layout_height="wrap_content"
+					        android:layout_alignParentLeft="true"
+					        android:layout_alignParentTop="true"
+					        android:layout_marginTop="5dp"
+					        android:src="@drawable/ic_gouter"
+					        android:text="Prénom NOM"
+					        android:textColor="#040404"
+					        android:textSize="18dip"
+					        android:textStyle="bold"
+					        android:typeface="sans" />
 
-		</LinearLayout>
+					    <TextView
+					        android:id="@+id/TextView09"
+					        android:layout_width="match_parent"
+					        android:layout_height="wrap_content"
+					        android:layout_below="@+id/ImageView07"
+					        android:gravity="center"
+					        android:text="Oui/Non"
+					        android:textColor="#343434"
+					        android:textSize="12dip" />
+					</RelativeLayout>
 
-	</LinearLayout>
+				    <RelativeLayout
+				        android:layout_width="93dp"
+				        android:layout_height="wrap_content"
+				        android:layout_marginBottom="5dp"
+				        android:background="#FFFFFF"
+				        android:orientation="horizontal" >
+
+				        <ImageView
+				            android:id="@+id/ImageView03"
+				            android:layout_width="match_parent"
+				            android:layout_height="wrap_content"
+				            android:layout_alignParentLeft="true"
+				            android:layout_alignParentTop="true"
+				            android:layout_marginTop="5dp"
+				            android:src="@drawable/ic_planning"
+				            android:text="Prénom NOM"
+				            android:textColor="#040404"
+				            android:textSize="18dip"
+				            android:textStyle="bold"
+				            android:typeface="sans" />
+
+				        <TextView
+				            android:id="@+id/TextView05"
+				            android:layout_width="match_parent"
+				            android:layout_height="wrap_content"
+				            android:layout_alignParentLeft="true"
+				            android:layout_below="@+id/ImageView03"
+				            android:gravity="center"
+				            android:text="Oui/Non"
+				            android:textColor="#343434"
+				            android:textSize="12dip" />
+				    </RelativeLayout>
+				</LinearLayout>
+
+				<LinearLayout
+				    android:layout_width="93dp"
+				    android:layout_height="wrap_content"
+				    android:layout_marginLeft="5dp"
+				    android:background="#FFFFFF"
+				    android:orientation="vertical" >
+
+					<RelativeLayout
+					    android:layout_width="93dp"
+					    android:layout_height="wrap_content"
+					    android:layout_marginBottom="5dp"
+					    android:background="#FFFFFF"
+					    android:orientation="horizontal" >
+
+					    <ImageView
+					        android:id="@+id/ImageView06"
+					        android:layout_width="match_parent"
+					        android:layout_height="wrap_content"
+					        android:layout_alignParentLeft="true"
+					        android:layout_alignParentTop="true"
+					        android:layout_marginTop="5dp"
+					        android:src="@drawable/ic_activites"
+					        android:text="Prénom NOM"
+					        android:textColor="#040404"
+					        android:textSize="18dip"
+					        android:textStyle="bold"
+					        android:typeface="sans" />
+
+					    <TextView
+					        android:id="@+id/TextView08"
+					        android:layout_width="match_parent"
+					        android:layout_height="wrap_content"
+					        android:layout_below="@+id/ImageView06"
+					        android:gravity="center"
+					        android:text="Oui/Non"
+					        android:textColor="#343434"
+					        android:textSize="12dip" />
+					</RelativeLayout>
+
+					<RelativeLayout
+					    android:layout_width="93dp"
+					    android:layout_height="wrap_content"
+					    android:layout_marginBottom="5dp"
+					    android:background="#FFFFFF"
+					    android:orientation="horizontal" >
+
+					    <ImageView
+					        android:id="@+id/ImageView05"
+					        android:layout_width="match_parent"
+					        android:layout_height="wrap_content"
+					        android:layout_alignParentLeft="true"
+					        android:layout_alignParentTop="true"
+					        android:layout_marginTop="5dp"
+					        android:src="@drawable/ic_pet_cat"
+					        android:text="Prénom NOM"
+					        android:textColor="#040404"
+					        android:textSize="18dip"
+					        android:textStyle="bold"
+					        android:typeface="sans" />
+
+					    <TextView
+					        android:id="@+id/TextView07"
+					        android:layout_width="match_parent"
+					        android:layout_height="wrap_content"
+					        android:layout_below="@+id/ImageView05"
+					        android:gravity="center"
+					        android:text="Oui/Non"
+					        android:textColor="#343434"
+					        android:textSize="12dip" />
+					</RelativeLayout>
+
+				    <RelativeLayout
+				        android:layout_width="93dp"
+				        android:layout_height="wrap_content"
+				        android:layout_marginBottom="5dp"
+				        android:background="#FFFFFF"
+				        android:orientation="horizontal" >
+
+				        <ImageView
+				            android:id="@+id/ImageView01"
+				            android:layout_width="match_parent"
+				            android:layout_height="wrap_content"
+				            android:layout_alignParentLeft="true"
+				            android:layout_alignParentTop="true"
+				            android:layout_marginTop="5dp"
+				            android:src="@drawable/ic_pet_dog"
+				            android:text="Prénom NOM"
+				            android:textColor="#040404"
+				            android:textSize="18dip"
+				            android:textStyle="bold"
+				            android:typeface="sans" />
+
+				        <TextView
+				            android:id="@+id/TextView03"
+				            android:layout_width="match_parent"
+				            android:layout_height="wrap_content"
+				            android:layout_alignParentLeft="true"
+				            android:layout_below="@+id/ImageView01"
+				            android:gravity="center"
+				            android:text="Oui/Non"
+				            android:textColor="#343434"
+				            android:textSize="12dip" />
+				    </RelativeLayout>
+				</LinearLayout>
+			    
+			    <LinearLayout
+			        android:layout_width="93dp"
+			        android:layout_height="wrap_content"
+			        android:layout_marginLeft="5dp"
+			        android:background="#FFFFFF"
+			        android:orientation="vertical" >
+
+			        <RelativeLayout
+			            android:layout_width="93dp"
+			            android:layout_height="wrap_content"
+			            android:layout_marginBottom="5dp"
+			            android:background="#FFFFFF"
+			            android:orientation="horizontal" >
+
+			            <ImageView
+			                android:id="@+id/ImageView04"
+			                android:layout_width="match_parent"
+			                android:layout_height="wrap_content"
+			                android:layout_alignParentLeft="true"
+			                android:layout_alignParentTop="true"
+			                android:layout_marginTop="5dp"
+			                android:src="@drawable/ic_sieste"
+			                android:text="Prénom NOM"
+			                android:textColor="#040404"
+			                android:textSize="18dip"
+			                android:textStyle="bold"
+			                android:typeface="sans" />
+
+			            <TextView
+			                android:id="@+id/TextView06"
+			                android:layout_width="match_parent"
+			                android:layout_height="wrap_content"
+			                android:layout_below="@+id/ImageView04"
+			                android:gravity="center"
+			                android:text="Oui/Non"
+			                android:textColor="#343434"
+			                android:textSize="12dip" />
+			        </RelativeLayout>
+
+			        <RelativeLayout
+			            android:layout_width="93dp"
+			            android:layout_height="wrap_content"
+			            android:layout_marginBottom="5dp"
+			            android:background="#FFFFFF"
+			            android:orientation="horizontal" >
+
+			            <ImageView
+			                android:id="@+id/ImageView02"
+			                android:layout_width="match_parent"
+			                android:layout_height="wrap_content"
+			                android:layout_alignParentLeft="true"
+			                android:layout_alignParentTop="true"
+			                android:layout_marginTop="5dp"
+			                android:src="@drawable/ic_nuit"
+			                android:text="Prénom NOM"
+			                android:textColor="#040404"
+			                android:textSize="18dip"
+			                android:textStyle="bold"
+			                android:typeface="sans" />
+
+			            <TextView
+			                android:id="@+id/TextView04"
+			                android:layout_width="match_parent"
+			                android:layout_height="wrap_content"
+			                android:layout_below="@+id/ImageView02"
+			                android:gravity="center"
+			                android:text="Oui/Non"
+			                android:textColor="#343434"
+			                android:textSize="12dip" />
+
+			        </RelativeLayout>
 	
+				    <RelativeLayout
+				        android:layout_width="93dp"
+				        android:layout_height="wrap_content"
+				        android:layout_marginBottom="5dp"
+				        android:background="#FFFFFF"
+				        android:orientation="horizontal" >
+	
+						<ImageView
+						    android:id="@+id/test1"
+						    android:layout_width="match_parent"
+						    android:layout_height="wrap_content"
+						    android:layout_alignParentLeft="true"
+						    android:layout_alignParentTop="true"
+						    android:layout_marginTop="5dp"
+						    android:src="@drawable/ic_secours"
+						    android:text="Prénom NOM"
+						    android:textColor="#040404"
+						    android:textSize="18dip"
+						    android:textStyle="bold"
+						    android:typeface="sans" />
 
+						 <TextView
+			                android:id="@+id/TextView00"
+			                android:layout_width="match_parent"
+			                android:layout_height="wrap_content"
+			                android:layout_below="@+id/test1"
+			                android:gravity="center"
+			                android:text="Oui/Non"
+			                android:textColor="#343434"
+			                android:textSize="12dip" />
+	
+				    </RelativeLayout>
+				</LinearLayout>
+			</LinearLayout>
+	</LinearLayout>
 
 		<Button
-		    
 			android:layout_height="match_parent"
 			android:layout_width="match_parent"
 			android:text="Demande de contact"
@@ -299,6 +583,5 @@
 			android:id="@+id/btn_send"/>
 
 	</LinearLayout>
-
 </ScrollView>
 
