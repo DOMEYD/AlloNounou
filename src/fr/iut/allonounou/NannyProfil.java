@@ -13,7 +13,7 @@ public class NannyProfil extends Activity {
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_profil);
+		setContentView(R.layout.activity_profil2);
 		
 		Button btn_contact = (Button) findViewById(R.id.button1);
 		

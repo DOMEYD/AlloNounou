@@ -83,16 +83,16 @@ public class ProfilActivity extends Activity {
 		cursor.close();
 		
 		TextView name_profil = (TextView)findViewById(R.id.name_profil);
-		TextView freeplace_profil = (TextView)findViewById(R.id.capacity_profil);
+		//TextView freeplace_profil = (TextView)findViewById(R.id.capacity_profil);
 		TextView adresse_profil = (TextView)findViewById(R.id.adress_profil);
-		TextView prix_profil = (TextView)findViewById(R.id.tarif_profil);
-		TextView workplace_profil = (TextView)findViewById(R.id.workplace_profil);
+		//TextView prix_profil = (TextView)findViewById(R.id.tarif_profil);
+		//TextView workplace_profil = (TextView)findViewById(R.id.workplace_profil);
 		
 		name_profil.setText(name);
-		freeplace_profil.setText(freeplace);
+		//freeplace_profil.setText(freeplace);
 		adresse_profil.setText(adresse);
-		prix_profil.setText(prix);
-		workplace_profil.setText(workplace);
+		//prix_profil.setText(prix);
+		//workplace_profil.setText(workplace);
 	}
 		
 	}
