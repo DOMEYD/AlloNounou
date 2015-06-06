@@ -68,7 +68,7 @@ public class ProfilActivity extends Activity {
 		String freeplace="";
 		String adresse ="";
 		String prix="";
-		String workplace="";
+		String word="";
 		int favori =0;
 		
 		Cursor cursor = myDB.getRow(DBNanny2.KEY_ROWID ,idNanny);
@@ -78,7 +78,7 @@ public class ProfilActivity extends Activity {
 			freeplace  = cursor.getString(DBNanny2.COL_FREEPLACE);
 			adresse  = cursor.getString(DBNanny2.COL_ADRESSE);
 			prix = cursor.getString(DBNanny2.COL_PRIX);
-			workplace = cursor.getString(DBNanny2.COL_WORKPLACE);
+			word = cursor.getString(DBNanny2.COL_WORD);
 		}
 		cursor.close();
 		
