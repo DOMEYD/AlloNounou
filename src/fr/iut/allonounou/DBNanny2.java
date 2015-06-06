@@ -83,7 +83,7 @@ public class DBNanny2{
 			"create table " + DATABASE_TABLE 
 			+ " (" + KEY_ROWID + " integer primary key autoincrement, "
 			+ KEY_NAME + " text not null, "
-			+ KEY_FREEPLACE + " integer not null, "
+			+ KEY_FREEPLACE + " text not null, "
 			+ KEY_FREECAT1 + " integer not null, "
 			+ KEY_FREECAT2 + " integer not null, "
 			+ KEY_FREECAT3 + " integer not null, "
@@ -139,7 +139,7 @@ public class DBNanny2{
 		
 		ContentValues initialValues = new ContentValues();
 		initialValues.put(KEY_NAME, name);
-		initialValues.put(KEY_FREEPLACE, freecat1+freecat2+freecat3);
+		initialValues.put(KEY_FREEPLACE, freecat1+freecat2+freecat3 +" place(s) disponible(s)");
 		initialValues.put(KEY_FREECAT1, freecat1);
 		initialValues.put(KEY_FREECAT2, freecat2);
 		initialValues.put(KEY_FREECAT3, freecat3);
@@ -227,7 +227,7 @@ public class DBNanny2{
 			String where = KEY_ROWID + "=" + rowId;
 			ContentValues newValues = new ContentValues();
 			newValues.put(KEY_NAME, name);
-			newValues.put(KEY_FREEPLACE, freecat1+freecat2+freecat3);
+			newValues.put(KEY_FREEPLACE, freecat1+freecat2+freecat3+" place(s) disponible(s)");
 			newValues.put(KEY_FREECAT1, freecat1);
 			newValues.put(KEY_FREECAT2, freecat2);
 			newValues.put(KEY_FREECAT3, freecat3);

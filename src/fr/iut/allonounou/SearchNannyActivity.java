@@ -34,7 +34,7 @@ public class SearchNannyActivity extends Activity {
 		nannyName = intent.getStringExtra(MainActivity.EXTRA_NANNY_NAME);
 				
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_search2);
+		setContentView(R.layout.activity_search);
 		
 		openDB();
 	
@@ -164,7 +164,7 @@ public class SearchNannyActivity extends Activity {
 		SimpleCursorAdapter myCursorAdapter = 
 				new SimpleCursorAdapter(
 						this,		// Context
-						R.layout.activity_search,	// Row layout template
+						R.layout.model_search,	// Row layout template
 						cursor,					// cursor (set of DB records to map)
 						fromFieldNames,			// DB Column names
 						toViewIDs				// View IDs to put information in

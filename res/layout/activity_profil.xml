@@ -121,13 +121,13 @@
 				        android:src="@drawable/ic_baby" />
 
 				    <TextView
-				        android:id="@+id/TextView02"
+				        android:id="@+id/freecat1_profil"
 				        android:layout_width="match_parent"
 				        android:layout_height="wrap_content"
 				        android:background="#FFFFFF"
 				        android:ems="10"
 				        android:height="40dp"
-				        android:hint="Nombre 0-3 ans"
+				        android:hint="Nombre 0-12 mois"
 				        android:inputType="text"
 				        android:padding="10dp" />
 				</LinearLayout>
@@ -148,13 +148,13 @@
 				        android:src="@drawable/ic_peri_girl" />
 
 				    <TextView
-				        android:id="@+id/TextView01"
+				        android:id="@+id/freecat2_profil"
 				        android:layout_width="match_parent"
 				        android:layout_height="wrap_content"
 				        android:background="#FFFFFF"
 				        android:ems="10"
 				        android:height="40dp"
-				        android:hint="Nombre 3-7 ans"
+				        android:hint="Nombre 12-24 mois"
 				        android:inputType="text"
 				        android:padding="10dp" />
 				</LinearLayout>
@@ -175,13 +175,13 @@
 						android:layout_marginLeft="5dp"/>
 	
 					<TextView
-					    android:id="@+id/edit_name"
+					    android:id="@+id/freecat3_profil"
 					    android:layout_width="match_parent"
 					    android:layout_height="wrap_content"
 					    android:background="#FFFFFF"
 					    android:ems="10"
 					    android:height="40dp"
-					    android:hint="Nombre 7-11 ans"
+					    android:hint="Nombre +24 mois"
 					    android:inputType="text"
 					    android:padding="10dp" />
 
@@ -210,7 +210,7 @@
 		        android:textStyle="italic" />
 
 		    <TextView
-		        android:id="@+id/edit_message"
+		        android:id="@+id/word_profil"
 		        android:layout_width="match_parent"
 		        android:layout_height="100dp"
 		        android:background="#FFFFFF"
@@ -287,7 +287,7 @@
 					        android:typeface="sans" />
 
 					    <TextView
-					        android:id="@+id/TextView10"
+					        android:id="@+id/repas_profil"
 					        android:layout_width="match_parent"
 					        android:layout_height="wrap_content"
 					        android:layout_below="@+id/ImageView08"
@@ -319,7 +319,7 @@
 					        android:typeface="sans" />
 
 					    <TextView
-					        android:id="@+id/TextView09"
+					        android:id="@+id/gouter_profil"
 					        android:layout_width="match_parent"
 					        android:layout_height="wrap_content"
 					        android:layout_below="@+id/ImageView07"
@@ -351,7 +351,7 @@
 				            android:typeface="sans" />
 
 				        <TextView
-				            android:id="@+id/TextView05"
+				            android:id="@+id/jeux_profil"
 				            android:layout_width="match_parent"
 				            android:layout_height="wrap_content"
 				            android:layout_alignParentLeft="true"
@@ -393,7 +393,7 @@
 					        android:typeface="sans" />
 
 					    <TextView
-					        android:id="@+id/TextView08"
+					        android:id="@+id/secours_profil"
 					        android:layout_width="match_parent"
 					        android:layout_height="wrap_content"
 					        android:layout_below="@+id/ImageView06"
@@ -425,7 +425,7 @@
 					        android:typeface="sans" />
 
 					    <TextView
-					        android:id="@+id/TextView07"
+					        android:id="@+id/chat_profil"
 					        android:layout_width="match_parent"
 					        android:layout_height="wrap_content"
 					        android:layout_below="@+id/ImageView05"
@@ -457,7 +457,7 @@
 				            android:typeface="sans" />
 
 				        <TextView
-				            android:id="@+id/TextView03"
+				            android:id="@+id/chien_profil"
 				            android:layout_width="match_parent"
 				            android:layout_height="wrap_content"
 				            android:layout_alignParentLeft="true"
@@ -499,7 +499,7 @@
 			                android:typeface="sans" />
 
 			            <TextView
-			                android:id="@+id/TextView06"
+			                android:id="@+id/promenade_profil"
 			                android:layout_width="match_parent"
 			                android:layout_height="wrap_content"
 			                android:layout_below="@+id/ImageView04"
@@ -531,7 +531,7 @@
 			                android:typeface="sans" />
 
 			            <TextView
-			                android:id="@+id/TextView04"
+			                android:id="@+id/nuit_profil"
 			                android:layout_width="match_parent"
 			                android:layout_height="wrap_content"
 			                android:layout_below="@+id/ImageView02"
@@ -564,7 +564,7 @@
 						    android:typeface="sans" />
 
 						 <TextView
-			                android:id="@+id/TextView00"
+			                android:id="@+id/atelier_profil"
 			                android:layout_width="match_parent"
 			                android:layout_height="wrap_content"
 			                android:layout_below="@+id/test1"
@@ -576,6 +576,37 @@
 				    </RelativeLayout>
 				</LinearLayout>
 			</LinearLayout>
+
+			<LinearLayout
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:background="#E4BBCA"
+			    android:gravity="center"
+			    android:orientation="vertical"
+			    android:padding="10dp" >
+
+			    <TextView
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+			        android:background="#ABABAB"
+			        android:gravity="center"
+			        android:text="Tarifs"
+			        android:textAppearance="?android:attr/textAppearanceMedium"
+			        android:textColor="#FFFFFF"
+			        android:textStyle="italic" />
+
+			    <TextView
+			        android:id="@+id/prix_profil"
+			        android:layout_width="match_parent"
+			        android:layout_height="35dp"
+			        android:background="#FFFFFF"
+			        android:ems="10"
+			        android:gravity="top"
+			        android:hint="Tarifs moyen"
+			        android:inputType="textShortMessage"
+			        android:padding="10dp" />
+			</LinearLayout>
+
 	</LinearLayout>
 
 		<Button

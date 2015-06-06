@@ -42,7 +42,7 @@ public class LazyAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
         View vi=convertView;
         if(convertView==null)
-            vi = inflater.inflate(R.layout.activity_search, null);
+            vi = inflater.inflate(R.layout.model_search, null);
  
         TextView title = (TextView)vi.findViewById(R.id.title); // title
         TextView artist = (TextView)vi.findViewById(R.id.artiste); // artist name
