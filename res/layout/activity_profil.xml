@@ -258,9 +258,10 @@
 			    android:orientation="horizontal" >
 
 				<LinearLayout
-				    android:layout_width="93dp"
+				    android:layout_width="0dp"
 				    android:layout_height="wrap_content"
-				    android:layout_gravity="left"
+				    android:layout_weight="1"
+				    
 				    android:layout_marginLeft="5dp"
 				    android:background="#FFFFFF"
 				    android:orientation="vertical" >
@@ -268,8 +269,10 @@
 					<RelativeLayout
 					    android:layout_width="93dp"
 					    android:layout_height="wrap_content"
+					    android:layout_gravity="center"
 					    android:layout_marginBottom="5dp"
 					    android:background="#FFFFFF"
+					    android:gravity="center"
 					    android:orientation="horizontal" >
 
 					    <ImageView
@@ -300,8 +303,10 @@
 					<RelativeLayout
 					    android:layout_width="93dp"
 					    android:layout_height="wrap_content"
+					    android:layout_gravity="center"
 					    android:layout_marginBottom="5dp"
 					    android:background="#FFFFFF"
+					    android:gravity="center"
 					    android:orientation="horizontal" >
 
 					    <ImageView
@@ -332,8 +337,10 @@
 				    <RelativeLayout
 				        android:layout_width="93dp"
 				        android:layout_height="wrap_content"
+				        android:layout_gravity="center"
 				        android:layout_marginBottom="5dp"
 				        android:background="#FFFFFF"
+				        android:gravity="center"
 				        android:orientation="horizontal" >
 
 				        <ImageView
@@ -364,9 +371,10 @@
 				</LinearLayout>
 
 				<LinearLayout
-				    android:layout_width="93dp"
+				    android:layout_width="0dp"
 				    android:layout_height="wrap_content"
-				    android:layout_gravity="center"
+				    android:layout_weight="1"
+				   	android:layout_marginRight="5dp"
 				    android:layout_marginLeft="5dp"
 				    android:background="#FFFFFF"
 				    android:orientation="vertical" >
@@ -374,6 +382,7 @@
 					<RelativeLayout
 					    android:layout_width="93dp"
 					    android:layout_height="wrap_content"
+					    android:layout_gravity="center"
 					    android:layout_marginBottom="5dp"
 					    android:background="#FFFFFF"
 					    android:orientation="horizontal" >
@@ -406,6 +415,7 @@
 					<RelativeLayout
 					    android:layout_width="93dp"
 					    android:layout_height="wrap_content"
+					    android:layout_gravity="center"
 					    android:layout_marginBottom="5dp"
 					    android:background="#FFFFFF"
 					    android:orientation="horizontal" >
@@ -438,6 +448,7 @@
 				    <RelativeLayout
 				        android:layout_width="93dp"
 				        android:layout_height="wrap_content"
+				        android:layout_gravity="center"
 				        android:layout_marginBottom="5dp"
 				        android:background="#FFFFFF"
 				        android:orientation="horizontal" >
@@ -470,16 +481,18 @@
 				</LinearLayout>
 			    
 			    <LinearLayout
-			        android:layout_width="93dp"
+			        android:layout_width="0dp"
 			        android:layout_height="wrap_content"
-			        android:layout_gravity="right"
-			        android:layout_marginLeft="5dp"
+			        android:layout_weight="1"
+			        
+			        android:layout_marginRight="5dp"
 			        android:background="#FFFFFF"
 			        android:orientation="vertical" >
 
 			        <RelativeLayout
 			            android:layout_width="93dp"
 			            android:layout_height="wrap_content"
+			            android:layout_gravity="center"
 			            android:layout_marginBottom="5dp"
 			            android:background="#FFFFFF"
 			            android:orientation="horizontal" >
@@ -512,6 +525,7 @@
 			        <RelativeLayout
 			            android:layout_width="93dp"
 			            android:layout_height="wrap_content"
+			            android:layout_gravity="center"
 			            android:layout_marginBottom="5dp"
 			            android:background="#FFFFFF"
 			            android:orientation="horizontal" >
@@ -545,6 +559,7 @@
 				    <RelativeLayout
 				        android:layout_width="93dp"
 				        android:layout_height="wrap_content"
+				        android:layout_gravity="center"
 				        android:layout_marginBottom="5dp"
 				        android:background="#FFFFFF"
 				        android:orientation="horizontal" >
