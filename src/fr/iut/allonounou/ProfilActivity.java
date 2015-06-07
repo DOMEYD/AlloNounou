@@ -19,7 +19,9 @@ import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class ProfilActivity extends Activity {
-	
+	public final static String EXTRA_MAIL = "fr.iut.allonounou.MAIL";
+	public final static String EXTRA_PHONE = "fr.iut.allonounou.PHONE";
+	public final static String EXTRA_NAME = "fr.iut.allonounou.NAME";
 	private String idNanny;
 	
 	DBNanny2 myDB;
@@ -44,10 +46,32 @@ public class ProfilActivity extends Activity {
 			@Override
 			public void onClick(View v){
 				Intent openContactNanny = new Intent(ProfilActivity.this, ContactNanny.class);
+				openContactNanny = contactDataNanny(openContactNanny);
 				startActivity(openContactNanny);
 			}
 		});
 	}
+	
+	
+	private Intent contactDataNanny(Intent intent){
+		Intent res = intent;
+		String name="";
+		String phone="";
+		String mail="";
+		
+		Cursor cursor = myDB.getRow(DBNanny2.KEY_ROWID ,idNanny);
+		if (cursor.moveToFirst()) {
+			mail = cursor.getString(DBNanny2.COL_MAIL);
+			phone = cursor.getString(DBNanny2.COL_PHONE);
+			name = cursor.getString(DBNanny2.COL_NAME);
+		}
+		cursor.close();
+		res.putExtra(EXTRA_NAME, name+"");
+		res.putExtra(EXTRA_MAIL, mail+"");
+		res.putExtra(EXTRA_PHONE, phone+"");
+		return res;
+	}
+	
 	
 	@Override
 	protected void onDestroy() {
