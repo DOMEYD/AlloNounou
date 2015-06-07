@@ -29,9 +29,9 @@ public class NannyAdapter extends ArrayAdapter<Nanny> {
        }
        
        // Lookup view for data population
-       TextView nannyName = (TextView) convertView.findViewById(R.id.title);
-       TextView nannyPlace = (TextView) convertView.findViewById(R.id.artiste);
-       TextView nannyAddress = (TextView) convertView.findViewById(R.id.duree);
+       TextView nannyName = (TextView) convertView.findViewById(R.id.nameNanny);
+       TextView nannyPlace = (TextView) convertView.findViewById(R.id.placeNanny);
+       TextView nannyAddress = (TextView) convertView.findViewById(R.id.adresseNanny);
        
        // Populate the data into the template view using the data object
        nannyName.setText(nanny.getName());
