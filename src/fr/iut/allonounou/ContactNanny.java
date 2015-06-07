@@ -25,10 +25,18 @@ public class ContactNanny extends Activity
 	public final static String HOURE_DEP = "com.iut.org.HOURE_DEP" ; 
 	public final static String MINUTE_DEP = "com.iut.org.MINUTE_HOURE_DEP" ;
 	
+	private String nameNanny;
+	private String phoneNanny;
+	private String mailNanny;
 	
     @Override
     public void onCreate(Bundle savedInstanceState)
 	{
+    	Intent intent = getIntent();
+		nameNanny =intent.getStringExtra(ProfilActivity.EXTRA_NAME);
+		phoneNanny= intent.getStringExtra(ProfilActivity.EXTRA_PHONE);
+		mailNanny= intent.getStringExtra(ProfilActivity.EXTRA_MAIL);
+    	
         super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_contact);
 		
