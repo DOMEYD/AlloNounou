@@ -67,13 +67,6 @@
             android:layout_height="wrap_content"
             android:text="@string/searchBtn"
 			android:onClick="searchNanny" />
-        <Button
-            android:id="@+id/todelete"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TO DELETE (CONTACT)"
-			android:onClick="startContact" />
 
         <ListView
             android:id="@+id/listView"
