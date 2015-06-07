@@ -147,7 +147,7 @@ public class SearchNannyActivity extends Activity {
 
 	
 	private void populateListViewFromDB() {
-		Cursor cursor = myDB.getAllRows();
+		Cursor cursor = myDB.getRowSearching(nannyName);
 		// Allow activity to manage lifetime of the cursor.
 		// DEPRECATED! Runs on the UI thread, OK for small/short queries.
 		startManagingCursor(cursor);
@@ -157,7 +157,7 @@ public class SearchNannyActivity extends Activity {
 				{DBNanny2.KEY_NAME,  DBNanny2.KEY_ADRESSE,  DBNanny2.KEY_FREEPLACE};
 	
 		int[] toViewIDs = new int[]
-				{R.id.title,     R.id.duree,     R.id.artiste};
+				{R.id.nameNanny,     R.id.adresseNanny,     R.id.placeNanny};
 
 		
 		// Create adapter to may columns of the DB onto elemesnt in the UI.
