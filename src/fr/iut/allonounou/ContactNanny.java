@@ -1,26 +1,14 @@
 package fr.iut.allonounou;
 
-import android.app.*;
-import android.os.*;
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.*;
-import android.view.View.OnClickListener;
 import android.widget.*;
-import android.app.AlertDialog.Builder;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.widget.NumberPicker;
-
-import java.io.*;
 
 public class ContactNanny extends Activity
 {
@@ -110,6 +98,7 @@ public class ContactNanny extends Activity
 		infoage.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		info_age.setAdapter(infoage);
 		
+		// Spinner (sexe)
 		ArrayAdapter<CharSequence> infosexe = ArrayAdapter.createFromResource(this,
 		R.array.infosexe_array, android.R.layout.simple_spinner_item);
 		infosexe.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
