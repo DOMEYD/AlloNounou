@@ -24,7 +24,7 @@
     </LinearLayout>
     
     <TextView 
-        android:id="@+id/title"
+        android:id="@+id/nameNanny"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/thumbnail"
@@ -36,24 +36,24 @@
         android:textStyle="bold"/>
 
    <TextView
-        android:id="@+id/artiste"
+        android:id="@+id/placeNanny"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/title"
-        android:layout_below="@+id/title"
-        android:text="Indication Adresse"
+        android:layout_alignLeft="@+id/nameNanny"
+        android:layout_below="@+id/nameNanny"
+        android:text="place disponible"
         android:textColor="#343434"
         android:textSize="12dip" 
         android:textStyle="italic"/>
 
    <TextView
-       android:id="@+id/duree"
+       android:id="@+id/adresseNanny"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:layout_alignBottom="@+id/thumbnail"
-       android:layout_alignRight="@+id/artiste"
+       android:layout_alignRight="@+id/placeNanny"
        android:gravity="right"
-       android:text="duree"
+       android:text="indication adresse"
        android:textColor="#10bcc9"
        android:textSize="12dip"
        android:textStyle="bold" />
