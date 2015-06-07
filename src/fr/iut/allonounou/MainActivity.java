@@ -1,18 +1,25 @@
 package fr.iut.allonounou;
 
 import java.io.IOException;
+
+import fr.iut.allonounou.modelAdapter.*;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
-import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,7 +28,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnFocusChangeListener;
 import android.view.Window;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 
 /*
  * ACTIVITY which manage search form
@@ -40,6 +49,42 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		//Remove title bar
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		
+		// CREATE listview		
+		ArrayList<Nanny> nannys = new ArrayList<Nanny>();
+		
+		// LOAD Favorites
+		SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+		String json = sharedPref.getString("Favorites", null);
+		JSONArray jObject = null;
+		if(json != null) {
+			try {
+				jObject = new JSONArray(json);
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		if(jObject != null) {
+			for(int i = 0; i < jObject.length(); i++) {
+				JSONObject jo = null;
+				try {
+					jo = jObject.getJSONObject(i);
+					Nanny tmpNanny = new Nanny(jo.getString("Name"), "", jo.getString("district"), jo.getString("district"));
+					nannys.add(tmpNanny);
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}	
+			
+			// Create the adapter to convert the array to views
+			NannyAdapter adapter = new NannyAdapter(this, nannys);
+			// Attach the adapter to a ListView
+			ListView listView = (ListView) findViewById(R.id.listView);
+			listView.setAdapter(adapter);		
+		}
 		
 		// DISPLAY layout after to prevent crash
 		setContentView(R.layout.activity_main);

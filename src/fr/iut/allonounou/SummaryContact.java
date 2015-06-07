@@ -18,6 +18,7 @@ public class SummaryContact extends Activity {
 		setContentView(R.layout.summary_contact);
 		
 		Button summary_ok = (Button) findViewById(R.id.summary_ok);
+		Button summary_cancel = (Button) findViewById(R.id.summary_cancel);
 		TextView sum_name = (TextView) findViewById(R.id.sum_name);
 		TextView sum_aged = (TextView) findViewById(R.id.sum_aged);
 		TextView sum_info_age = (TextView) findViewById(R.id.sum_info_age);
@@ -61,7 +62,7 @@ public class SummaryContact extends Activity {
 		
 		final String NUM_TEL = intent.getStringExtra(ContactNanny.USER_PHONE);
 		
-		final String MSG = "Vous venez de recevoir une demande de garde de :\n" + GET_CHILD_NAME + " (" + GET_CHILD_AGED + " " + GET_INFO_CHILD_AGE + ")\n" + "De " + ARR + " à " + DEP + "\n" + "Veiller prendre contact avec " + GET_USER_NAME + " (" + NUM_TEL + ")";
+		final String MSG = "Vous venez de recevoir une demande de garde de :\n" + GET_CHILD_NAME + " (" + GET_CHILD_AGED + " " + GET_INFO_CHILD_AGE + ")\n" + "De " + ARR + " à " + DEP + "\n" + "Veillez prendre contact avec " + GET_USER_NAME + " (" + NUM_TEL + ")";
 		
 		// Si touche le bouton OK, revient à l'activité principale et envoit un SMS
 		summary_ok.setOnClickListener(new View.OnClickListener(){
@@ -72,6 +73,15 @@ public class SummaryContact extends Activity {
 				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 				SmsManager.getDefault().sendTextMessage(NUM_TEL, null, MSG, null, null);
 				startActivity(intent);
+			}
+		});
+		
+		// Si touche le bouton Annuler, revient à l'activité précedente
+		summary_cancel.setOnClickListener(new View.OnClickListener(){
+
+			@Override
+			public void onClick(View v){
+				SummaryContact.this.finish();
 			}
 		});
     }

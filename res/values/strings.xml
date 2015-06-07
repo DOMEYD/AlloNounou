@@ -10,7 +10,7 @@
     <string name="myLocation">Ma position</string>
     <string name="searchBtn">Rechercher</string>
     <string name="loading">Recherche d\'une addresse proche de vous</string>
-        <string-array name="month_array">
+    <string-array name="month_array">
         <item>mois</item>
         <item>an(s)</item>
     </string-array>
