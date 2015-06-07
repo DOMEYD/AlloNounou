@@ -77,11 +77,7 @@ public class ProfilActivity extends Activity {
 		int repas=0;  int secours=0;  int nuit=0; 
 		int gouter=0; int chat=0;  int promenade=0;
 		int jeux=0;	  int chien=0; int atelier=0;
-		
-		
-	
-	
-		
+
 		
 		Cursor cursor = myDB.getRow(DBNanny2.KEY_ROWID ,idNanny);
 		if (cursor.moveToFirst()) {

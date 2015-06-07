@@ -198,6 +198,20 @@ public class DBNanny2{
 		}
 		return c;
 	}
+	
+	
+	
+	public Cursor getRowSearching(String name) {
+		String where = KEY_NAME + " LIKE '%"+name+"%'";
+		Cursor c = 	db.query(true, DATABASE_TABLE, ALL_KEYS, 
+						where, null, null, null, null, null);
+		if (c != null) {
+			c.moveToFirst();
+		}
+		return c;
+	}
+	
+	
 
 	  /**
      *Récupération des données d'un profil spécifique
