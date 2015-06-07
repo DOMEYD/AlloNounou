@@ -273,7 +273,7 @@
 					    android:orientation="horizontal" >
 
 					    <ImageView
-					        android:id="@+id/ImageView08"
+					        android:id="@+id/img_repas"
 					        android:layout_width="match_parent"
 					        android:layout_height="wrap_content"
 					        android:layout_alignParentLeft="true"
@@ -290,7 +290,7 @@
 					        android:id="@+id/repas_profil"
 					        android:layout_width="match_parent"
 					        android:layout_height="wrap_content"
-					        android:layout_below="@+id/ImageView08"
+					        android:layout_below="@+id/img_repas"
 					        android:gravity="center"
 					        android:text="Oui/Non"
 					        android:textColor="#343434"
@@ -305,7 +305,7 @@
 					    android:orientation="horizontal" >
 
 					    <ImageView
-					        android:id="@+id/ImageView07"
+					        android:id="@+id/img_gouter"
 					        android:layout_width="match_parent"
 					        android:layout_height="wrap_content"
 					        android:layout_alignParentLeft="true"
@@ -322,7 +322,7 @@
 					        android:id="@+id/gouter_profil"
 					        android:layout_width="match_parent"
 					        android:layout_height="wrap_content"
-					        android:layout_below="@+id/ImageView07"
+					        android:layout_below="@+id/img_gouter"
 					        android:gravity="center"
 					        android:text="Oui/Non"
 					        android:textColor="#343434"
@@ -337,13 +337,13 @@
 				        android:orientation="horizontal" >
 
 				        <ImageView
-				            android:id="@+id/ImageView03"
+				            android:id="@+id/img_jeux"
 				            android:layout_width="match_parent"
 				            android:layout_height="wrap_content"
 				            android:layout_alignParentLeft="true"
 				            android:layout_alignParentTop="true"
 				            android:layout_marginTop="5dp"
-				            android:src="@drawable/ic_planning"
+				            android:src="@drawable/ic_game"
 				            android:text="Prénom NOM"
 				            android:textColor="#040404"
 				            android:textSize="18dip"
@@ -355,7 +355,7 @@
 				            android:layout_width="match_parent"
 				            android:layout_height="wrap_content"
 				            android:layout_alignParentLeft="true"
-				            android:layout_below="@+id/ImageView03"
+				            android:layout_below="@+id/img_jeux"
 				            android:gravity="center"
 				            android:text="Oui/Non"
 				            android:textColor="#343434"
@@ -379,13 +379,13 @@
 					    android:orientation="horizontal" >
 
 					    <ImageView
-					        android:id="@+id/ImageView06"
+					        android:id="@+id/img_secours"
 					        android:layout_width="match_parent"
 					        android:layout_height="wrap_content"
 					        android:layout_alignParentLeft="true"
 					        android:layout_alignParentTop="true"
 					        android:layout_marginTop="5dp"
-					        android:src="@drawable/ic_activites"
+					        android:src="@drawable/ic_secours"
 					        android:text="Prénom NOM"
 					        android:textColor="#040404"
 					        android:textSize="18dip"
@@ -396,7 +396,7 @@
 					        android:id="@+id/secours_profil"
 					        android:layout_width="match_parent"
 					        android:layout_height="wrap_content"
-					        android:layout_below="@+id/ImageView06"
+					        android:layout_below="@+id/img_secours"
 					        android:gravity="center"
 					        android:text="Oui/Non"
 					        android:textColor="#343434"
@@ -411,7 +411,7 @@
 					    android:orientation="horizontal" >
 
 					    <ImageView
-					        android:id="@+id/ImageView05"
+					        android:id="@+id/img_chat"
 					        android:layout_width="match_parent"
 					        android:layout_height="wrap_content"
 					        android:layout_alignParentLeft="true"
@@ -428,7 +428,7 @@
 					        android:id="@+id/chat_profil"
 					        android:layout_width="match_parent"
 					        android:layout_height="wrap_content"
-					        android:layout_below="@+id/ImageView05"
+					        android:layout_below="@+id/img_chat"
 					        android:gravity="center"
 					        android:text="Oui/Non"
 					        android:textColor="#343434"
@@ -443,7 +443,7 @@
 				        android:orientation="horizontal" >
 
 				        <ImageView
-				            android:id="@+id/ImageView01"
+				            android:id="@+id/img_chien"
 				            android:layout_width="match_parent"
 				            android:layout_height="wrap_content"
 				            android:layout_alignParentLeft="true"
@@ -461,7 +461,7 @@
 				            android:layout_width="match_parent"
 				            android:layout_height="wrap_content"
 				            android:layout_alignParentLeft="true"
-				            android:layout_below="@+id/ImageView01"
+				            android:layout_below="@+id/img_chien"
 				            android:gravity="center"
 				            android:text="Oui/Non"
 				            android:textColor="#343434"
@@ -485,13 +485,13 @@
 			            android:orientation="horizontal" >
 
 			            <ImageView
-			                android:id="@+id/ImageView04"
+			                android:id="@+id/img_nuit"
 			                android:layout_width="match_parent"
 			                android:layout_height="wrap_content"
 			                android:layout_alignParentLeft="true"
 			                android:layout_alignParentTop="true"
 			                android:layout_marginTop="5dp"
-			                android:src="@drawable/ic_sieste"
+			                android:src="@drawable/ic_nuit"
 			                android:text="Prénom NOM"
 			                android:textColor="#040404"
 			                android:textSize="18dip"
@@ -502,7 +502,7 @@
 			                android:id="@+id/promenade_profil"
 			                android:layout_width="match_parent"
 			                android:layout_height="wrap_content"
-			                android:layout_below="@+id/ImageView04"
+			                android:layout_below="@+id/img_nuit"
 			                android:gravity="center"
 			                android:text="Oui/Non"
 			                android:textColor="#343434"
@@ -517,13 +517,13 @@
 			            android:orientation="horizontal" >
 
 			            <ImageView
-			                android:id="@+id/ImageView02"
+			                android:id="@+id/img_promenade"
 			                android:layout_width="match_parent"
 			                android:layout_height="wrap_content"
 			                android:layout_alignParentLeft="true"
 			                android:layout_alignParentTop="true"
 			                android:layout_marginTop="5dp"
-			                android:src="@drawable/ic_nuit"
+			                android:src="@drawable/ic_promenade"
 			                android:text="Prénom NOM"
 			                android:textColor="#040404"
 			                android:textSize="18dip"
@@ -534,7 +534,7 @@
 			                android:id="@+id/nuit_profil"
 			                android:layout_width="match_parent"
 			                android:layout_height="wrap_content"
-			                android:layout_below="@+id/ImageView02"
+			                android:layout_below="@+id/img_promenade"
 			                android:gravity="center"
 			                android:text="Oui/Non"
 			                android:textColor="#343434"
@@ -550,13 +550,13 @@
 				        android:orientation="horizontal" >
 	
 						<ImageView
-						    android:id="@+id/test1"
+						    android:id="@+id/img_activites"
 						    android:layout_width="match_parent"
 						    android:layout_height="wrap_content"
 						    android:layout_alignParentLeft="true"
 						    android:layout_alignParentTop="true"
 						    android:layout_marginTop="5dp"
-						    android:src="@drawable/ic_secours"
+						    android:src="@drawable/ic_activity"
 						    android:text="Prénom NOM"
 						    android:textColor="#040404"
 						    android:textSize="18dip"
@@ -567,7 +567,7 @@
 			                android:id="@+id/atelier_profil"
 			                android:layout_width="match_parent"
 			                android:layout_height="wrap_content"
-			                android:layout_below="@+id/test1"
+			                android:layout_below="@+id/img_activites"
 			                android:gravity="center"
 			                android:text="Oui/Non"
 			                android:textColor="#343434"
