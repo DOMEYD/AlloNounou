@@ -253,4 +253,10 @@ public class MainActivity extends Activity {
 		
 		d.dismiss();
 	}
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		loadFavorites();
+	}
 }
