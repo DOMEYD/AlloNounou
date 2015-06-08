@@ -14,6 +14,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -82,8 +83,8 @@ public class ProfilActivity extends Activity {
 	
 	private void toFavorite() {
 		// GET before prefs
-		SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
-		String before = sharedPref.getString("Favorites", null);
+		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+		String before = preferences.getString("Favorites", null);
 
 		// CREATE or GET array nannys
 		JSONArray jarr = null;
@@ -101,11 +102,13 @@ public class ProfilActivity extends Activity {
 		// GET infos
 		String name = "";
 		String district = "";
+		int id = 0;
 
 		Cursor cursor = myDB.getRow(DBNanny2.KEY_ROWID ,idNanny);
 		if (cursor.moveToFirst()) {
 			name = cursor.getString(DBNanny2.COL_NAME);
 			district = cursor.getString(DBNanny2.COL_ADRESSE);
+			id = cursor.getInt(DBNanny2.COL_ROWID);
 		}
 		cursor.close();
 
@@ -115,13 +118,15 @@ public class ProfilActivity extends Activity {
 			json.put("Name", name);
 			json.put("ProfilPicture", "");
 			json.put("district", district);
+			json.put("id", id);
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
 		jarr.put(json);
 
 		// ADD TO SHARED PREFERENCES
-		SharedPreferences.Editor editor = sharedPref.edit();
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+	    SharedPreferences.Editor editor = prefs.edit();
 		editor.putString("Favorites", jarr.toString());
 		editor.commit();
 	}

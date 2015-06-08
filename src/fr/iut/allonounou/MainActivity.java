@@ -14,6 +14,8 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -22,6 +24,7 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,11 +32,14 @@ import android.view.View;
 import android.view.View.OnFocusChangeListener;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.AdapterView.OnItemClickListener;
 
 /*
  * ACTIVITY which manage search form
@@ -41,6 +47,7 @@ import android.widget.TextView;
 public class MainActivity extends Activity {
 	public final static String EXTRA_LOCATION = "fr.iut.allonounou.LOCATION";
 	public final static String EXTRA_NANNY_NAME = "fr.iut.allonounou.NANNY_NAME";
+	public final static String EXTRA_ID = "fr.iut.allonounou.ID";
 	
 	private double lat = 0;
 	private double lon = 0;
@@ -54,44 +61,10 @@ public class MainActivity extends Activity {
 		//Remove title bar
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		
-		// CREATE listview		
-		ArrayList<Nanny> nannys = new ArrayList<Nanny>();
-		
-		// LOAD Favorites
-		SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
-		String json = sharedPref.getString("Favorites", null);
-		JSONArray jObject = null;
-		if(json != null) {
-			try {
-				jObject = new JSONArray(json);
-			} catch (JSONException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		
-		if(jObject != null) {
-			for(int i = 0; i < jObject.length(); i++) {
-				JSONObject jo = null;
-				try {
-					jo = jObject.getJSONObject(i);
-					Nanny tmpNanny = new Nanny(jo.getString("Name"), "", jo.getString("district"), jo.getString("district"));
-					nannys.add(tmpNanny);
-				} catch (JSONException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}	
-			
-			// Create the adapter to convert the array to views
-			NannyAdapter adapter = new NannyAdapter(this, nannys);
-			// Attach the adapter to a ListView
-			ListView listView = (ListView) findViewById(R.id.listView);
-			listView.setAdapter(adapter);		
-		}
-		
 		// DISPLAY layout after to prevent crash
 		setContentView(R.layout.activity_main);
+		
+		loadFavorites();
 		
 		editTextLocation = (EditText) findViewById(R.id.et_location);
 		editTextAssitName = (EditText) findViewById(R.id.et_assistName);
@@ -122,6 +95,61 @@ public class MainActivity extends Activity {
 		});
 	}
 	
+	private void loadFavorites() {
+		// CREATE listview		
+		ArrayList<Nanny> nannys = new ArrayList<Nanny>();
+		
+		// LOAD Favorites
+		SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+		String json = preferences.getString("Favorites", null);
+		JSONArray jObject = null;
+		if(json != null) {
+			try {
+				jObject = new JSONArray(json);
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		if(jObject != null) {
+			for(int i = 0; i < jObject.length(); i++) {
+				JSONObject jo = null;
+				try {
+					jo = jObject.getJSONObject(i);
+					Nanny tmpNanny = new Nanny(jo.getInt("id"), jo.getString("Name"), "", jo.getString("district"), "");
+					nannys.add(tmpNanny);
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+			}	
+			
+			// Create the adapter to convert the array to views
+			NannyAdapter adapter = new NannyAdapter(this, nannys);
+			// Attach the adapter to a ListView
+			ListView listView = (ListView) findViewById(R.id.listView);
+			listView.setOnItemClickListener(viewNanny);
+			listView.setAdapter(adapter);	
+		}		
+	}
+	
+	public OnItemClickListener viewNanny = new OnItemClickListener()
+	{
+		@Override
+		public void onItemClick(AdapterView<?> av, View v, int arg2, long arg3)
+		{			
+			// Retrieve TextView content
+			Object info = ((RelativeLayout) v).getTag();
+			
+			// GET intent for search nanny
+			Intent intent = new Intent(MainActivity.this, ProfilActivity.class);
+			
+			intent.putExtra(EXTRA_ID, info.toString());
+			
+			// LAUNCH
+		    startActivity(intent);
+		}
+	};
+
 	private void changeBtn() {
 		Log.d("TEST", "VALUE");
 		Log.d("VALUES", editTextLocation.getText().toString());

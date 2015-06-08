@@ -5,17 +5,27 @@ public class Nanny {
 	private String place;
 	private String address;
 	private String picture;
+	private int id;
 	
 	
-	public Nanny(String name, String place, String address, String picture) {
+	public Nanny(int id, String name, String place, String address, String picture) {
 		super();
 		this.name = name;
 		this.place = place;
 		this.address = address;
 		this.picture = picture;
+		this.id = id;
 	}
 	
 	
+	public int getId() {
+		return id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getName() {
 		return name;
 	}
