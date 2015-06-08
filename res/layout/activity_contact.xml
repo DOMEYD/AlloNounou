@@ -336,7 +336,8 @@
 			android:layout_width="match_parent"
 			android:text="ENVOYER LA DEMANDE"
 			android:background="#FFF48FB1"
-			android:id="@+id/btn_send"/>
+			android:id="@+id/btn_send"
+			 android:textStyle="bold"/>
 
 	</LinearLayout>
 

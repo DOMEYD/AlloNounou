@@ -20,8 +20,8 @@ import android.widget.Toast;
 public class SearchNannyActivity extends Activity {
 	public final static String EXTRA_ID = "fr.iut.allonounou.ID";
 	
-	private String nannyName;
-	private double[] location;
+	private String nannyName ="";
+	private double[] location ={0,0};
 	
 	DBNanny2 myDB;
 	
@@ -49,9 +49,15 @@ public class SearchNannyActivity extends Activity {
 		// RETRIEVE passed datas
 		Intent intent = getIntent();
 		Bundle b = intent.getExtras();
-		location = b.getDoubleArray(MainActivity.EXTRA_LOCATION);
-		nannyName = intent.getStringExtra(MainActivity.EXTRA_NANNY_NAME);
-				
+		if (b != null) {
+		    if (b.containsKey(MainActivity.EXTRA_LOCATION)) {
+				location = b.getDoubleArray(MainActivity.EXTRA_LOCATION);
+		    }
+		    if (b.containsKey(MainActivity.EXTRA_NANNY_NAME)) {
+				nannyName = intent.getStringExtra(MainActivity.EXTRA_NANNY_NAME);
+		    }
+		}
+		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_search);
 		
@@ -169,7 +175,18 @@ public class SearchNannyActivity extends Activity {
 
 	
 	private void populateListViewFromDB() {
-		Cursor cursor = myDB.getRowSearching(nannyName);
+		Cursor cursor ;
+		Log.d("TEST","TEST");
+		if (nannyName.equals(""))
+		{
+			cursor = myDB.getAllRows();
+			
+		}
+		else
+		{
+			cursor = myDB.getRowSearching(nannyName);
+		}
+		
 		// Allow activity to manage lifetime of the cursor.
 		// DEPRECATED! Runs on the UI thread, OK for small/short queries.
 		startManagingCursor(cursor);
@@ -210,7 +227,7 @@ public class SearchNannyActivity extends Activity {
 	
 	
 		//détection du clique sur un item
-		private void registerListClickCallback() {
+		/*private void registerListClickCallback() {
 			ListView myList = (ListView) findViewById(R.id.listViewNanny);
 			myList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 				@Override
@@ -222,7 +239,7 @@ public class SearchNannyActivity extends Activity {
 					searchNanny(idInDB);
 				}
 			});
-		}
+		}*/
 		
 		
 		public void searchNanny(long idInDB) {

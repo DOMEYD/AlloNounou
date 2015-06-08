@@ -629,7 +629,8 @@
 			android:layout_width="match_parent"
 			android:text="DEMANDE  DE  CONTACT"
 			android:background="#FFF48FB1"
-			android:id="@+id/contact_profil"/>
+			android:id="@+id/contact_profil"
+			 android:textStyle="bold"/>
 
 	</LinearLayout>
 </ScrollView>
