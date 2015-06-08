@@ -26,18 +26,42 @@
 		android:descendantFocusability="beforeDescendants"
 		android:focusableInTouchMode="true" >
 
-        <EditText
-            android:id="@+id/et_assistName"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/assistName"
-            android:inputType="textPersonName"/>
+            android:orientation="horizontal" >
+            <ImageButton
+                android:id="@+id/bt_clear"
+                android:layout_width="25dp"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:contentDescription="@string/myLocation"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_clear"
+                android:onClick="clearInput" />
+	        <EditText
+	            android:id="@+id/et_assistName"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:ems="10"
+	            android:hint="@string/assistName"
+	            android:inputType="textPersonName"
+	            />
+	    </LinearLayout>
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
+            <ImageButton
+                android:id="@+id/bt_clear_2"
+                android:layout_width="25dp"
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:contentDescription="@string/myLocation"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_clear"
+                android:onClick="clearInput" />
 
             <EditText
                 android:id="@+id/et_location"
@@ -65,8 +89,8 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/searchBtn"
-			android:onClick="searchNanny" />
+            android:onClick="searchNanny"
+            android:text="@string/viewAllNanny" />
 
         <ListView
             android:id="@+id/listView"

@@ -27,10 +27,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnFocusChangeListener;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 /*
  * ACTIVITY which manage search form
@@ -42,7 +45,8 @@ public class MainActivity extends Activity {
 	private double lat = 0;
 	private double lon = 0;
 	private EditText editTextLocation;
-	
+	private EditText editTextAssitName;
+	private Button searchNannyBtn;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +94,9 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		editTextLocation = (EditText) findViewById(R.id.et_location);
+		editTextAssitName = (EditText) findViewById(R.id.et_assistName);
+		searchNannyBtn = (Button) findViewById(R.id.button1);
+
 		editTextLocation.setOnFocusChangeListener(new OnFocusChangeListener() {          
 			public void onFocusChange(View v, boolean hasFocus) {
 				if (!hasFocus) {
@@ -99,12 +106,32 @@ public class MainActivity extends Activity {
 					
 					try {
 						addresses = geocoder.getFromLocationName(editTextLocation.getText().toString(), 1);
-						lat = addresses.get(0).getLatitude();
-						lon = addresses.get(0).getLongitude();
+						if(addresses.size() > 0) {
+							lat = addresses.get(0).getLatitude();
+							lon = addresses.get(0).getLongitude();							
+						}
 					} catch(IOException e) {}
 				}
+				changeBtn();
 			}
 		});
+		editTextAssitName.setOnFocusChangeListener(new OnFocusChangeListener() {          
+			public void onFocusChange(View v, boolean hasFocus) {
+				changeBtn();
+			}
+		});
+	}
+	
+	private void changeBtn() {
+		Log.d("TEST", "VALUE");
+		Log.d("VALUES", editTextLocation.getText().toString());
+		Log.d("VALUES", editTextAssitName.getText().toString());
+		if(editTextLocation.getText().toString().length() != 0 || editTextAssitName.getText().toString().length() != 0) {
+			searchNannyBtn.setText(getResources().getString(R.string.searchBtn));
+		} else {
+			searchNannyBtn.setText(getResources().getString(R.string.viewAllNanny));			
+		}
+		
 	}
 
 	@Override
@@ -138,12 +165,29 @@ public class MainActivity extends Activity {
 			Double [] pos = {lat, lon};
 			Log.d("DEBUG_LATLON", lat + " " + lon);
 			intent.putExtra(EXTRA_LOCATION, pos);
-		} else {
-			return;
-		}
+		} 
+//		else {
+//			return;
+//		}
 	    
 	    // LAUNCH
 	    startActivity(intent);
+	}
+	
+	public void clearInput(View view) {
+		EditText textView = null;
+		ViewGroup row = (ViewGroup) view.getParent();
+		for (int itemPos = 0; itemPos < row.getChildCount(); itemPos++) {
+		    View viewTemp = row.getChildAt(itemPos);
+		    if (viewTemp instanceof EditText) {
+		         textView = (EditText) viewTemp; //Found it!
+		         break;
+		    }
+		}
+		
+		if(textView != null) {
+			textView.setText("");
+		}
 	}
 	
 	public void startContact(View view) {

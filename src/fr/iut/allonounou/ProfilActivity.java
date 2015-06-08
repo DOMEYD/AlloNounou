@@ -2,12 +2,22 @@ package fr.iut.allonounou;
 
 import java.util.List;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.widget.AdapterView;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -52,7 +62,70 @@ public class ProfilActivity extends Activity {
 		});
 	}
 	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.profile, menu);
+		return true;
+	} 
 	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+			case R.id.fav:
+				toFavorite();
+				return true;
+			default:
+				return super.onOptionsItemSelected(item);
+		}
+	}
+	
+	private void toFavorite() {
+		// GET before prefs
+		SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+		String before = sharedPref.getString("Favorites", null);
+
+		// CREATE or GET array nannys
+		JSONArray jarr = null;
+		if(before == null) 
+			jarr = new JSONArray();
+		else {
+			try {
+				jarr = new JSONArray(before);
+			} catch (JSONException e1) {
+				e1.printStackTrace();
+			}
+		}
+			
+		
+		// GET infos
+		String name = "";
+		String district = "";
+
+		Cursor cursor = myDB.getRow(DBNanny2.KEY_ROWID ,idNanny);
+		if (cursor.moveToFirst()) {
+			name = cursor.getString(DBNanny2.COL_NAME);
+			district = cursor.getString(DBNanny2.COL_ADRESSE);
+		}
+		cursor.close();
+
+		// CREATE json
+		JSONObject json = new JSONObject();
+		try {
+			json.put("Name", name);
+			json.put("ProfilPicture", "");
+			json.put("district", district);
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
+		jarr.put(json);
+
+		// ADD TO SHARED PREFERENCES
+		SharedPreferences.Editor editor = sharedPref.edit();
+		editor.putString("Favorites", jarr.toString());
+		editor.commit();
+	}
+
 	private Intent contactDataNanny(Intent intent){
 		Intent res = intent;
 		String name="";

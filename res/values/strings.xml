@@ -18,5 +18,7 @@
         <item>Fille</item>
         <item>Garçon</item>
     </string-array>
+        <string name="viewAllNanny">Voir toutes les nounous</string>
+        <string name="addToFavorite">Ajouter aux favoris</string>
 
 </resources>
