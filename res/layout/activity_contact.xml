@@ -116,13 +116,14 @@
 			android:background="#FCE4EC">
 
 			<TextView
-				android:layout_height="wrap_content"
-				android:textAppearance="?android:attr/textAppearanceLarge"
-				android:layout_width="match_parent"
-				android:text="Votre message"
-				android:gravity="center"
-				android:background="#9e9e9e"
-				android:textColor="#FFFFFF"/>
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:background="#9e9e9e"
+			    android:gravity="center"
+			    android:text="Votre message"
+			    android:textAppearance="?android:attr/textAppearanceLarge"
+			    android:textColor="#FFFFFF"
+			    android:textStyle="italic" />
 
 			<EditText
 			    android:id="@+id/edit_message"
@@ -131,7 +132,7 @@
 			    android:background="#FFFFFF"
 			    android:ems="10"
 			    android:gravity="top"
-			    android:hint="Votre message ..."
+			    android:hint="Votre message (facultatif) ..."
 			    android:inputType="textShortMessage"
 			    android:padding="10dp" />
 
@@ -259,7 +260,8 @@
 		    android:gravity="center"
 		    android:padding="5dp"
 		    android:text="Heure de dépot de l&apos;enfant"
-		    android:textAppearance="?android:attr/textAppearanceMedium" />
+		    android:textAppearance="?android:attr/textAppearanceMedium"
+		    android:textStyle="italic" />
 
 		<LinearLayout
 		    android:layout_width="wrap_content"
@@ -297,7 +299,8 @@
 		    android:gravity="center"
 		    android:padding="5dp"
 		    android:text="Heure de récupération "
-		    android:textAppearance="?android:attr/textAppearanceMedium" />
+		    android:textAppearance="?android:attr/textAppearanceMedium"
+		    android:textStyle="italic" />
 		
 		<LinearLayout
 		    android:layout_width="wrap_content"
