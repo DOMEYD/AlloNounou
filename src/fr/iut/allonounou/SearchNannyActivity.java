@@ -24,6 +24,25 @@ public class SearchNannyActivity extends Activity {
 	private double[] location;
 	
 	DBNanny2 myDB;
+	
+	int[] imagesIDs = {
+			R.drawable.ic_nurse_aquaman,
+			R.drawable.ic_nurse_batman,
+			R.drawable.ic_nurse_beast,
+			R.drawable.ic_nurse_black,
+			R.drawable.ic_nurse_captain,
+			R.drawable.ic_nurse_flash,
+			R.drawable.ic_nurse_green,
+			R.drawable.ic_nurse_hulk,
+			R.drawable.ic_nurse_iron,
+			R.drawable.ic_nurse_nick,
+			R.drawable.ic_nurse_professor,
+			R.drawable.ic_nurse_rogue,
+			R.drawable.ic_nurse_superman,
+			R.drawable.ic_nurse_thor,
+			R.drawable.ic_nurse_wolverine,
+			R.drawable.ic_nurse_wonder
+	};
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +86,9 @@ public class SearchNannyActivity extends Activity {
 	 */
 	
 	public void InitiateBD() {
+		//int imageId = imagesIDs[nextImageIndex];
+		//nextImageIndex = (nextImageIndex + 1) % imagesIDs.length;
+		
 		//  name, freecat1, freecat2, freecat3, 
 		// adresse, longitude,  latitude, 
 		// mail,  phone,prix, word,

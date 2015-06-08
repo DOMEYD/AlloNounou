@@ -11,7 +11,7 @@
 	    <TextView
 	        android:layout_width="match_parent"
 	        android:layout_height="30dp"
-	        android:background="#74ABAA"
+	        android:background="#616161"
 	        android:gravity="center"
 	        android:text="Vous"
 	        android:textAppearance="?android:attr/textAppearanceLarge"
@@ -22,14 +22,14 @@
 			android:layout_width="match_parent"
 			android:orientation="vertical"
 			android:padding="10dp"
-			android:background="#B795A5">
+			android:background="#FCE4EC">
 
 			<LinearLayout
 				android:layout_height="wrap_content"
 				android:layout_width="match_parent"
 				android:orientation="horizontal"
 				android:layout_marginBottom="10dp"
-				android:background="#C4C4C4">
+				android:background="#64b5f6">
 
 				<ImageView
 					android:layout_height="35dp"
@@ -57,7 +57,7 @@
 				android:layout_width="match_parent"
 				android:orientation="horizontal"
 				android:layout_marginBottom="10dp"
-				android:background="#C4C4C4">
+				android:background="#64b5f6">
 
 				<ImageView
 					android:layout_height="35dp"
@@ -83,7 +83,7 @@
 				android:layout_height="wrap_content"
 				android:layout_width="match_parent"
 				android:orientation="horizontal"
-				android:background="#C4C4C4">
+				android:background="#64b5f6">
 
 				<ImageView
 					android:layout_height="35dp"
@@ -113,7 +113,7 @@
 			android:orientation="vertical"
 			android:gravity="center"
 			android:padding="10dp"
-			android:background="#E4BBCA">
+			android:background="#FCE4EC">
 
 			<TextView
 				android:layout_height="wrap_content"
@@ -121,7 +121,7 @@
 				android:layout_width="match_parent"
 				android:text="Votre message"
 				android:gravity="center"
-				android:background="#ABABAB"
+				android:background="#9e9e9e"
 				android:textColor="#FFFFFF"/>
 
 			<EditText
@@ -143,13 +143,13 @@
 			android:layout_width="match_parent"
 			android:text="Enfant"
 			android:gravity="center"
-			android:background="#74ABAA"
+			android:background="#616161"
 			android:textColor="#FFFFFF"/>
 
 		<LinearLayout
 		    android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
-		    android:background="#EEEEEE"
+		    android:background="#FCE4EC"
 		    android:baselineAligned="true"
 		    android:orientation="vertical"
 		    android:padding="10dp" >
@@ -159,7 +159,7 @@
 				android:layout_width="match_parent"
 				android:orientation="horizontal"
 				android:clipToPadding="true"
-				android:background="#739FC5"
+				android:background="#64b5f6"
 				android:layout_marginBottom="5dp">
 
 				<ImageView
@@ -219,7 +219,7 @@
 				<LinearLayout
 				    android:layout_width="match_parent"
 				    android:layout_height="45dp"
-				    android:background="#739FC5"
+				    android:background="#64b5f6"
 				    android:gravity="center"
 				    android:orientation="horizontal" >
 
@@ -237,7 +237,7 @@
 		<TextView
 		    android:layout_width="match_parent"
 		    android:layout_height="30dp"
-		    android:background="#74ABAA"
+		    android:background="#616161"
 		    android:gravity="center"
 		    android:text="Horaires"
 		    android:textAppearance="?android:attr/textAppearanceLarge"
@@ -247,7 +247,7 @@
 		    android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
 		    android:layout_gravity="center"
-		    android:background="#DDDDDD"
+		    android:background="#FCE4EC"
 		    android:gravity="center"
 		    android:orientation="vertical"
 		    android:padding="10dp" >
@@ -255,7 +255,7 @@
 		<TextView
 		    android:layout_width="match_parent"
 		    android:layout_height="fill_parent"
-		    android:background="#B3B3B3"
+		    android:background="#9e9e9e"
 		    android:gravity="center"
 		    android:padding="5dp"
 		    android:text="Heure de dépot de l&apos;enfant"
@@ -293,7 +293,7 @@
 		    android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
 		    android:layout_gravity="center_horizontal"
-		    android:background="#B3B3B3"
+		    android:background="#9e9e9e"
 		    android:gravity="center"
 		    android:padding="5dp"
 		    android:text="Heure de récupération "
@@ -334,8 +334,8 @@
 		    
 			android:layout_height="match_parent"
 			android:layout_width="match_parent"
-			android:text="Envoyer la demande"
-			android:background="#DE7972"
+			android:text="ENVOYER LA DEMANDE"
+			android:background="#FFF48FB1"
 			android:id="@+id/btn_send"/>
 
 	</LinearLayout>

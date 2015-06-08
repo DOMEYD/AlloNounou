@@ -11,7 +11,7 @@
 	    <TextView
 	        android:layout_width="match_parent"
 	        android:layout_height="30dp"
-	        android:background="#74ABAA"
+	        android:background="#616161"
 	        android:gravity="center"
 	        android:text="Profil de l'assistante"
 	        android:textAppearance="?android:attr/textAppearanceLarge"
@@ -22,7 +22,7 @@
 			android:layout_width="match_parent"
 			android:orientation="vertical"
 			android:padding="10dp"
-			android:background="#B795A5">
+			android:background="#FCE4EC">
 
 			<RelativeLayout
 			    android:layout_width="match_parent"
@@ -75,13 +75,13 @@
 			android:layout_width="match_parent"
 			android:text="Enfants"
 			android:gravity="center"
-			android:background="#74ABAA"
+			android:background="#616161"
 			android:textColor="#FFFFFF"/>
 
 		<LinearLayout
 		    android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
-		    android:background="#EEEEEE"
+		    android:background="#FCE4EC"
 		    android:baselineAligned="true"
 		    android:orientation="vertical"
 		    android:padding="10dp" >
@@ -91,13 +91,13 @@
 				android:layout_width="match_parent"
 				android:orientation="vertical"
 				android:clipToPadding="true"
-				android:background="#739FC5"
+				android:background="#64b5f6"
 				android:layout_marginBottom="5dp">
 
 				<TextView
 				    android:layout_width="match_parent"
 				    android:layout_height="wrap_content"
-				    android:background="#ABABAB"
+				    android:background="#9e9e9e"
 				    android:gravity="center"
 				    android:text="Je peux accueillir"
 				    android:layout_marginBottom="5dp"
@@ -194,7 +194,7 @@
 		<LinearLayout
 		    android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
-		    android:background="#E4BBCA"
+		    android:background="#FCE4EC"
 		    android:gravity="center"
 		    android:orientation="vertical"
 		    android:padding="10dp" >
@@ -202,7 +202,7 @@
 		    <TextView
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
-		        android:background="#ABABAB"
+		        android:background="#9e9e9e"
 		        android:gravity="center"
 		        android:text="Le mot de l'assistante"
 		        android:textAppearance="?android:attr/textAppearanceMedium"
@@ -224,7 +224,7 @@
 		<TextView
 		    android:layout_width="match_parent"
 		    android:layout_height="30dp"
-		    android:background="#74ABAA"
+		    android:background="#616161"
 		    android:gravity="center"
 		    android:text="Divers"
 		    android:textAppearance="?android:attr/textAppearanceLarge"
@@ -234,7 +234,7 @@
 		    android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
 		    android:layout_gravity="center"
-		    android:background="#DDDDDD"
+		    android:background="#FCE4EC"
 		    android:gravity="center"
 		    android:orientation="vertical"
 		    android:padding="10dp" >
@@ -242,7 +242,7 @@
 			<TextView
 			    android:layout_width="match_parent"
 			    android:layout_height="wrap_content"
-			    android:background="#ABABAB"
+			    android:background="#9e9e9e"
 			    android:gravity="center"
 			    android:text="Informations complémentaires"
 			    android:textAppearance="?android:attr/textAppearanceMedium"
@@ -253,7 +253,7 @@
 			    android:layout_width="match_parent"
 			    android:layout_height="wrap_content"
 			    android:layout_marginBottom="5dp"
-			    android:background="#739FC5"
+			    android:background="#64b5f6"
 			    android:clipToPadding="true"
 			    android:orientation="horizontal" >
 
@@ -595,7 +595,7 @@
 			<LinearLayout
 			    android:layout_width="match_parent"
 			    android:layout_height="wrap_content"
-			    android:background="#E4BBCA"
+			    android:background="#FCE4EC"
 			    android:gravity="center"
 			    android:orientation="vertical"
 			    android:padding="10dp" >
@@ -603,7 +603,7 @@
 			    <TextView
 			        android:layout_width="match_parent"
 			        android:layout_height="wrap_content"
-			        android:background="#ABABAB"
+			        android:background="#9e9e9e"
 			        android:gravity="center"
 			        android:text="Tarifs"
 			        android:textAppearance="?android:attr/textAppearanceMedium"
@@ -627,8 +627,8 @@
 		<Button
 			android:layout_height="match_parent"
 			android:layout_width="match_parent"
-			android:text="Demande de contact"
-			android:background="#DE7972"
+			android:text="DEMANDE  DE  CONTACT"
+			android:background="#FFF48FB1"
 			android:id="@+id/contact_profil"/>
 
 	</LinearLayout>
