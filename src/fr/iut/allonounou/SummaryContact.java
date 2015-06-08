@@ -60,9 +60,9 @@ public class SummaryContact extends Activity {
 		
 		String DEP = GET_HOURE_DEP + "h" + GET_MINUTE_DEP;
 		
-		final String NUM_TEL = intent.getStringExtra(ContactNanny.USER_PHONE);
-		
-		final String MSG = "Vous venez de recevoir une demande de garde de :\n" + GET_CHILD_NAME + " (" + GET_CHILD_AGED + " " + GET_INFO_CHILD_AGE + ")\n" + "De " + ARR + " à " + DEP + "\n" + "Veillez prendre contact avec " + GET_USER_NAME + " (" + NUM_TEL + ")";
+		final String NANNY_NUM_TEL = intent.getStringExtra(ContactNanny.PHONE_NANNY);
+		final String USER_NUM_TEL = intent.getStringExtra(ContactNanny.USER_PHONE);
+		final String MSG = "Vous venez de recevoir une demande de garde de :\n" + GET_CHILD_NAME + " (" + GET_CHILD_AGED + " " + GET_INFO_CHILD_AGE + ")\n" + "De " + ARR + " à " + DEP + "\n" + "Veillez prendre contact avec " + GET_USER_NAME + " au " + USER_NUM_TEL ;
 		
 		// Si touche le bouton OK, revient à l'activité principale et envoit un SMS
 		summary_ok.setOnClickListener(new View.OnClickListener(){
@@ -71,7 +71,7 @@ public class SummaryContact extends Activity {
 			public void onClick(View v){
 				Intent intent = new Intent(SummaryContact.this, MainActivity.class);
 				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-				SmsManager.getDefault().sendTextMessage(NUM_TEL, null, MSG, null, null);
+				SmsManager.getDefault().sendTextMessage(NANNY_NUM_TEL, null, MSG, null, null);
 				startActivity(intent);
 			}
 		});

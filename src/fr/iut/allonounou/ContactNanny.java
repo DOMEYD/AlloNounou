@@ -23,7 +23,8 @@ public class ContactNanny extends Activity
 	public final static String HOURE_ARR = "com.iut.org.HOURE_ARR"; 
 	public final static String MINUTE_ARR = "com.iut.org.MINUTE_ARR";
 	public final static String HOURE_DEP = "com.iut.org.HOURE_DEP" ; 
-	public final static String MINUTE_DEP = "com.iut.org.MINUTE_HOURE_DEP" ;
+	public final static String MINUTE_DEP = "com.iut.org.MINUTE_DEP" ;
+	public final static String PHONE_NANNY = "com.iut.org.PHONE_NANNY" ;
 	
 	private String nameNanny;
 	private String phoneNanny;
@@ -33,9 +34,9 @@ public class ContactNanny extends Activity
     public void onCreate(Bundle savedInstanceState)
 	{
     	Intent intent = getIntent();
-		nameNanny =intent.getStringExtra(ProfilActivity.EXTRA_NAME);
-		phoneNanny= intent.getStringExtra(ProfilActivity.EXTRA_PHONE);
-		mailNanny= intent.getStringExtra(ProfilActivity.EXTRA_MAIL);
+		nameNanny = intent.getStringExtra(ProfilActivity.EXTRA_NAME);
+		phoneNanny = intent.getStringExtra(ProfilActivity.EXTRA_PHONE);
+		mailNanny = intent.getStringExtra(ProfilActivity.EXTRA_MAIL);
     	
         super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_contact);
@@ -90,6 +91,7 @@ public class ContactNanny extends Activity
 				openSummaryActivity.putExtra(MINUTE_ARR, String.valueOf(minute_arr.getValue()));
 				openSummaryActivity.putExtra(HOURE_DEP, String.valueOf(houre_dep.getValue()));
 				openSummaryActivity.putExtra(MINUTE_DEP, String.valueOf(minute_dep.getValue()));
+				openSummaryActivity.putExtra(PHONE_NANNY, phoneNanny);
 				
 				if(TextUtils.isEmpty(edit_name.getText().toString()) || TextUtils.isEmpty(edit_email.getText().toString()) || TextUtils.isEmpty(edit_phone.getText().toString()) || TextUtils.isEmpty(edit_message.getText().toString()) || TextUtils.isEmpty(edit_aged.getText().toString()) || TextUtils.isEmpty(edit_childname.getText().toString())) {
 					Toast.makeText(getApplicationContext(), "Informations manquantes", Toast.LENGTH_SHORT).show();
